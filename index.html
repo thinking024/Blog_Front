@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="transform: none;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="max-age=72000">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="shortcut icon" href="http://localhost:8080/img/logo.png">
+    <title> 部落格--helloworld</title>
+    <link rel="stylesheet" href="./index/style.css">
+    <link rel="stylesheet" href="./index/font-awesome.min.css">
+
+    <script src="./index/share.js"></script>
+    <link id="layuicss-laydate" rel="stylesheet" href="./index/laydate.css" media="all">
+    <link id="layuicss-layer" rel="stylesheet" href="./index/layer.css" media="all">
+    <link id="layuicss-skincodecss" rel="stylesheet" href="./index/code.css" media="all">
+    <style>
+        .theiaStickySidebar:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+    <link rel="stylesheet" href="./index/share_style0_16.css">
+    <!-- <script src="chrome-extension://ajdpfmkffanmkhejnopjppegokpogffp/assets/prompt.js"></script>
+    <style type="text/css">
+        @font-face {
+            font-family: "element-icons";
+            src: url('chrome-extension://dkbiiofameebehokbgjmdcholafphbnl/fonts/element-icons.woff') format('woff'),
+                url('chrome-extension://dkbiiofameebehokbgjmdcholafphbnl/fonts/element-icons.ttf ') format('truetype');
+            /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+        }
+    </style> -->
+</head>
+
+<body style="transform: none;">
+    <div id="page" class="site" style="transform: none;">
+
+        <!-- 顶部菜单 -->
+        <header id="masthead" class="site-header">
+            <div id="menu-box">
+                <div id="top-menu">
+                    <span class="nav-search">
+                        <i class="fa fa-search"></i>
+                    </span>
+
+                    <div class="logo-site">
+                        <h1 class="site-title">
+                            <a href="http://localhost:8080/" title="部落格">部落格</a>
+                        </h1>
+                        <p class="site-description">Hello World</p>
+                    </div><!-- .logo-site -->
+
+                    <div id="site-nav-wrap">
+                        <div id="sidr-close">
+                            <a href="http://localhost:8080/#sidr-close" class="toggle-sidr-close">×</a>
+                        </div>
+                        <nav id="site-nav" class="main-nav">
+                            <a href="http://localhost:8080/#sidr-main" id="navigation-toggle" class="bars">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                            <div class="menu-pcmenu-container">
+                                <ul id="menu-pcmenu" class="down-menu nav-menu">
+
+                                    <li>
+                                        <a href="http://localhost:8080/">
+                                            <i class="fa-home fa"></i>
+                                            <span class="font-text">首页</span>
+                                        </a>
+                                    </li>
+
+
+
+                                    <li>
+                                        <a href="http://localhost:8080/category/1" class="sf-with-ul">
+                                            <i class="fa fa-coffee"></i>
+                                            <span class="font-text">Java&nbsp;</span>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="http://localhost:8080/category/2" target="_blank">Java基础</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/3" target="_blank">Core Java</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/4" target="_blank">多线程并发编程</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/5"
+                                                    target="_blank">Sockets和IO</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/6" target="_blank">设计模式和反射</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/7" target="_blank">JVM</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/8" target="_blank">JavaWeb</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/9" target="_blank">Java框架</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/category/10" class="sf-with-ul">
+                                            <i class="fa fa-cubes"></i>
+                                            <span class="font-text">计算机科学&nbsp;</span>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="http://localhost:8080/category/11" target="_blank">数据结构和算法</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/12" target="_blank">操作系统</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/13" target="_blank">数据库</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/14" target="_blank">计算机网络</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/category/15" class="sf-with-ul">
+                                            <i class="fa-snowflake-o fa"></i>
+                                            <span class="font-text">其他技术&nbsp;</span>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="http://localhost:8080/category/16" target="_blank">消息服务</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/17" target="_blank">缓存服务</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/100000003"
+                                                    target="_blank">微服务</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/100000004"
+                                                    target="_blank">搜索引擎</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/100000005"
+                                                    target="_blank">权限框架</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:8080/category/100000006"
+                                                    target="_blank">开发利器</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="https://leetcode.com/problemset/all">
+                                            <i class="ssss"></i>
+                                            <span class="font-text">LeetCode&nbsp;</span>
+                                        </a>
+                                    </li>
+
+
+                                    <li>
+                                        <a href="http://localhost:8080/">
+                                            <i class="fa-home fa"></i>
+                                            <span class="font-text">关于本站</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/">
+                                            <i class="fa-home fa"></i>
+                                            <span class="font-text">进入后台</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="clear"></div>
+                </div><!-- #top-menu -->
+            </div>
+        </header>
+
+        <!-- 搜索框 -->
+        <div id="search-main" style="display: none;">
+            <div class="searchbar">
+                <form method="get" id="searchform" action="http://localhost:8080/search" accept-charset="UTF-8">
+                    <span>
+                        <input type="text" value="" name="keywords" id="s" placeholder="输入搜索内容" required="">
+                        <button type="submit" id="searchsubmit">搜索</button>
+                    </span>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <!-- 公告栏 -->
+        <nav class="breadcrumb">
+            <div class="bull">
+                <i class="fa fa-volume-up"></i>
+            </div>
+            <div id="scrolldiv">
+                <div class="scrolltext">
+                    <ul style="margin-top: 0px;">
+                        <li v-for="notice in notices" class="scrolltext-title">
+                            <a v-bind:href="['./notice.html?noticeId=' + notice.noticeId]" rel="bookmark">{{notice.noticeTitle}}</a>
+                        </li>
+                        <!-- <li class="scrolltext-title" v-for="notice in notices">
+                            <a v-bind:href="['./notice' + notice.noticeId]" rel="bookmark">{{notice.noticeTitle}}</a>
+                        </li> -->
+                        <!-- <li class="scrolltext-title">
+                            <a href="http://localhost:8080/notice/1" rel="bookmark">本站下载地址</a>
+                        </li>
+                        <li class="scrolltext-title">
+                            <a href="http://localhost:8080/notice/3" rel="bookmark">终于开始更新了</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 正文 -->
+        <div id="content" class="site-content" style="transform: none;">
+            <div id="primary" class="content-area">
+
+                <!-- 文章 -->
+                <main id="main" class="site-main" role="main">
+                    <article v-for="article in article_data.list" class="post type-post">
+
+                        <figure class="thumbnail">
+                            <!-- 文章图片 -->
+                            <a v-bind:href="['./article_detail.html?articleId=' + article.articleId]">
+                                <img width="280" height="210" v-bind:src="article.articlePicUrl"
+                                    class="attachment-content size-content wp-post-image"
+                                    v-bind:alt="article.articleTitle">
+                            </a>
+
+                            <!-- 文章分类 -->
+                            <span class="cat">
+                                <a v-bind:href="['./category.html?categoryId=' + article.articleId]">
+                                    {{article.categoryList[0].categoryName}}</a>
+                            </span>
+                        </figure>
+
+                        <!-- 文章标题 -->
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a v-bind:href="['./article_detail.html?articleId=' + article.articleId]" rel="bookmark">
+                                    {{article.articleTitle}}</a>
+                            </h2>
+                        </header>
+
+                        <div class="entry-content">
+                            <!-- 文章内容 todo-->
+                            <div class="archive-content" v-html="article.articleContent">
+                                {{article.articleSummary}}
+                            </div>
+                            <span class="title-l"></span>
+                            <span class="new-icon">
+                            </span>
+
+                            <span class="entry-meta">
+                                <!-- 更新时间 -->
+                                <span class="date">
+                                    {{article.articleUpdateTime}}
+                                    &nbsp;&nbsp;
+                                </span>
+
+                                <!-- 访问量 -->
+                                <span class="views">
+                                    <i class="fa fa-eye"></i>
+                                    {{article.articleViewCount}} views
+                                </span>
+                            </span>
+                            <div class="clear"></div>
+                        </div><!-- .entry-content -->
+
+                        <span class="entry-more">
+                            <a v-bind:href="['./article_detail.html?articleId=' + article.articleId]" rel="bookmark">
+                                阅读全文
+                            </a>
+                        </span>
+                    </article>
+                </main>
+
+                <!-- 页码 -->
+                <nav class="navigation pagination" role="navigation">
+                    <div class="nav-links">
+                        <a v-for="pageNo in article_data.navigatepageNums" class="page-numbers"
+                            v-bind:class="{current: article_data.pageNum == pageNo }"
+                            v-bind:href="['./index.html?pageIndex=' + pageNo]">{{pageNo}}</a>
+                        <span class="fa fa-angle-right"></span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- 侧边栏 -->
+            <div id="sidebar" class="widget-area all-sidebar"
+                style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+
+
+                <div class="theiaStickySidebar"
+                    style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+
+                    <!-- 网站概况 -->
+                    <aside id="php_text-22" class="widget php_text">
+                        <h3 class="widget-title">
+                            <i class="fa fa-bars"></i>网站概况
+                        </h3>
+                        <div class="textwidget widget-text">
+                            <ul class="site-profile">
+                                <li><i class="fa fa-file-o"></i> 文章总数：25 篇</li>
+                                <li><i class="fa fa-commenting-o"></i> 留言数量：23 条</li>
+                                <li><i class="fa fa-folder-o"></i> 分类数量：22 个</li>
+                                <li><i class="fa fa-tags"></i> 标签总数：35 个</li>
+                                <li><i class="fa fa-link"></i> 链接数量：4 个</li>
+                                <li><i class="fa fa-eye"></i> 浏览总量：144 次</li>
+                                <li><i class="fa fa-pencil-square-o"></i> 最后更新：
+                                    <span style="color:#2F889A">
+                                        2019年04月26日</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </aside>
+
+                    <!-- 热门文章 -->
+                    <aside class="widget">
+                        <h3 class="widget-title">
+                            <i class="fa fa-bars"></i>热门文章
+                        </h3>
+                        <div class="new_cat">
+                            <ul>
+                                <li>
+                                    <span class="thumbnail">
+                                        <a href="https://liuyanzhao.com/1386611709573206018.html">
+                                            <img src="./言曌博客 _ 学如逆水行舟，不进则退_files/acd734b91d5c43eca49a4c15ae37da0b.png"
+                                                class="lazy" alt="SpringBoot/SSM 物品租赁系统 摄影器材租赁系统">
+                                        </a>
+                                    </span>
+                                    <span class="new-title">
+                                        <a href="https://liuyanzhao.com/1386611709573206018.html"
+                                            rel="bookmark">SpringBoot/SSM 物品租赁系统 摄影器材租赁系统</a>
+                                    </span>
+                                    <span class="date">04/26</span>
+                                    <span class="discuss"><i class="be be-speechbubble"></i> 1</span>
+                                </li>
+                                <li>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </aside>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="clear"></div>
+
+        <!-- 底部链接 -->
+        <div class="links-box">
+            <div id="links">
+                <ul class="lx7">
+                    <li class="link-f link-name">
+                        <a href="http://liuyanzhao.com/" target="_blank">
+                            言曌博客</a>
+                    </li>
+                </ul>
+                <!-- 多个ul -->
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <!-- 页脚信息 -->
+        <footer id="colophon" class="site-footer" role="contentinfo">
+            <div class="site-info">
+                <p style="text-align: center;">Copyright © 2021
+                    <a href="http://localhost:8080/" target="_blank" rel="noopener noreferrer">部落格</a>
+                    All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./index/jquery.min.js"></script>
+    <script src="./index/superfish.js"></script>
+    <script src="./index/sticky.js"></script>
+    <script src="./index/script.js"></script>
+    <style id="STYLE_1630852957641">
+        @CHARSET "UTF-8";
+
+        * {
+            -webkit-tap-highlight-color: rgba(255, 0, 0, 0)
+        }
+
+        .box-size {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box
+        }
+
+        .ds-hide {
+            display: none
+        }
+
+        .ds-reward-stl {
+            font-family: "microsoft yahei";
+            text-align: center;
+            background: #f1f1f1;
+            padding: 10px 0;
+            color: #666;
+            margin: 20px auto;
+            width: 90%
+        }
+
+        #dsRewardBtn {
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            background: #7ab951;
+            left: 110px;
+            top: -7px;
+            width: 50px;
+            height: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 43px;
+            display: block;
+            border: 4px solid #fff;
+            border-radius: 40px;
+            color: #FFF;
+        }
+
+        #dsRewardBtn span {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            line-height: 58px;
+            color: #fff;
+            font: 400 25px/50px 'microsoft yahei';
+            background: #FEC22C
+        }
+
+        #dsRewardBtn:hover {
+            cursor: pointer
+        }
+
+        .ds-dialog {
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border: 1px solid #d9d9d9
+        }
+
+        .ds-dialog .ds-close-dialog {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font: 400 24px/24px Arial;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            padding: 0;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            -webkit-appearance: none;
+            font-weight: 700;
+            line-height: 20px;
+            opacity: .6;
+            filter: alpha(opacity=20)
+        }
+
+        .ds-dialog .ds-close-dialog:hover {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+            opacity: .6;
+            filter: alpha(opacity=40)
+        }
+
+        .ds-dialog-bg {
+            position: absolute;
+            opacity: .6;
+            filter: alpha(opacity=30);
+            background: #000;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%
+        }
+
+        .ds-dialog-content {
+            font-family: 'microsoft yahei';
+            font-size: 14px;
+            background-color: #FFF;
+            position: fixed;
+            padding: 0 20px;
+            z-index: 10000;
+            overflow: hidden;
+            border-radius: 6px;
+            -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, .3);
+            box-shadow: 0 3px 7px rgba(0, 0, 0, .3);
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        .ds-dialog-pc {
+            width: 390px;
+            height: 380px;
+            top: 50%;
+            left: 50%;
+            margin: -190px 0 0 -195px
+        }
+
+        .ds-dialog-wx {
+            width: 90%;
+            height: 280px;
+            top: 50%;
+            margin-top: -140px;
+            margin-left: 5%
+        }
+
+        .ds-dialog-content h5 {
+            text-align: left;
+            font-size: 15px;
+            font-weight: 700;
+            margin: 15px 0;
+            color: #555
+        }
+
+        .ds-payment-way {
+            text-align: left
+        }
+
+        .ds-payment-way label {
+            cursor: pointer;
+            font-weight: 400;
+            display: inline-block;
+            font-size: 14px;
+            margin: 0 15px 0 0;
+            padding: 0
+        }
+
+        .ds-payment-way input[type=radio] {
+            vertical-align: middle;
+            margin: -2px 5px 0 0
+        }
+
+        .ds-payment-img {
+            margin: 15px 0;
+            text-align: center
+        }
+
+        p.ds-pay-info {
+            font-size: 15px;
+            margin: 0 0 10px
+        }
+
+        .ds-pay-money {
+            font-size: 14px;
+            margin-top: 10px
+        }
+
+        .ds-pay-money p {
+            margin: 0
+        }
+
+        .ds-pay-money .ds-pay-money-sum {
+            margin-bottom: 4px
+        }
+
+        .ds-payment-img img {
+            margin: 0 auto;
+            width: 185px;
+        }
+
+        .ds-payment-img #qrCode_1 {
+            display: none
+        }
+
+        .ds-payment-img .qrcode-border {
+            margin: 0 auto
+        }
+
+        .ds-payment-img .qrcode-tip {
+            width: 48.13px;
+            position: relative;
+            margin: 0 auto;
+            font-size: 12px;
+            font-weight: 700;
+            background: #fff;
+            height: 15px;
+            line-height: 15px;
+            margin-top: -12px
+        }
+
+        #qrCode_0 .qrcode-tip {
+            color: #3caf36
+        }
+
+        #qrCode_3 .qrcode-tip {
+            color: #e10602
+        }
+
+        .ds-payment-img #qrCode_3 {
+            display: none
+        }
+
+        .ds-payment-img #qrCode_2 {
+            display: none
+        }
+
+        #qrCode_2 .qrcode-tip {
+            color: #eb5f01
+        }
+
+        #qrCode_1 .qrcode-tip {
+            color: #6699cc
+        }
+
+        .wx_qrcode_container {
+            text-align: center
+        }
+
+        .wx_qrcode_container h2 {
+            font-size: 17px
+        }
+
+        .wx_qrcode_container p {
+            font-size: 14px
+        }
+
+        .ds-reward-stl {
+            text-align: left;
+            background: #fff;
+            padding: 0;
+            color: #666;
+            margin: 0;
+            width: 0
+        }
+
+        #dsRewardBtn span {
+            position: absolute;
+            left: 115px;
+            top: -7px;
+            background: #7ab951;
+            width: 50px;
+            height: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 43px;
+            border: 4px solid #fff;
+            border-radius: 40px
+        }
+
+        .share-s a {
+            margin-top: -25px
+        }
+
+        .ds-payment-img .qrcode-border {
+            border-radius: 29.97px;
+            width: 236.89px;
+            height: 236.89px;
+            padding: 18.05px;
+            margin-top: 25.53px;
+        }
+    </style>
+
+    <script src="./index/layui.all.js"></script>
+
+
+
+    <div id="sidr-main" class="sidr left">
+        <div class="sidr-inner">
+            <a href="http://localhost:8080/#sidr-close" class="sidr-class-toggle-sidr-close">×</a>
+        </div>
+        <div class="sidr-inner">
+            <a href="http://localhost:8080/#sidr-main" id="sidr-id-navigation-toggle" class="sidr-class-bars">
+                <i class="sidr-class-fa sidr-class-fa-bars"></i>
+            </a>
+            <div class="sidr-class-menu-pcmenu-container">
+                <ul id="sidr-id-menu-pcmenu" class="sidr-class-down-menu sidr-class-nav-menu">
+
+                    <li>
+                        <a href="http://localhost:8080/">
+                            <i class="sidr-class-fa-home sidr-class-fa"></i>
+                            <span class="sidr-class-font-text">首页</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="http://localhost:8080/category/1" class="sidr-class-sf-with-ul">
+                            <i class="sidr-class-fa sidr-class-fa-coffee"></i>
+                            <span class="sidr-class-font-text">Java&nbsp;</span>
+                        </a>
+                        <ul class="sidr-class-sub-menu">
+                            <li>
+                                <a href="http://localhost:8080/category/2" target="_blank">Java基础</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/3" target="_blank">Core Java</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/4" target="_blank">多线程并发编程</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/5" target="_blank">Sockets和IO</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/6" target="_blank">设计模式和反射</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/7" target="_blank">JVM</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/8" target="_blank">JavaWeb</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/9" target="_blank">Java框架</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/category/10" class="sidr-class-sf-with-ul">
+                            <i class="sidr-class-fa sidr-class-fa-cubes"></i>
+                            <span class="sidr-class-font-text">计算机科学&nbsp;</span>
+                        </a>
+                        <ul class="sidr-class-sub-menu">
+                            <li>
+                                <a href="http://localhost:8080/category/11" target="_blank">数据结构和算法</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/12" target="_blank">操作系统</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/13" target="_blank">数据库</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/14" target="_blank">计算机网络</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/category/15" class="sidr-class-sf-with-ul">
+                            <i class="sidr-class-fa-snowflake-o sidr-class-fa"></i>
+                            <span class="sidr-class-font-text">其他技术&nbsp;</span>
+                        </a>
+                        <ul class="sidr-class-sub-menu">
+                            <li>
+                                <a href="http://localhost:8080/category/16" target="_blank">消息服务</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/17" target="_blank">缓存服务</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/100000003" target="_blank">微服务</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/100000004" target="_blank">搜索引擎</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/100000005" target="_blank">权限框架</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8080/category/100000006" target="_blank">开发利器</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="https://leetcode.com/problemset/all">
+                            <i class="sidr-class-ssss"></i>
+                            <span class="sidr-class-font-text">LeetCode&nbsp;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/message">
+                            <i class="sidr-class-fa sidr-class-fa-comment"></i>
+                            <span class="sidr-class-font-text">留言板&nbsp;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script>
+        // var domain = "http://4snyng.natappfree.cc";
+		var domain = "http://bfqr6h.natappfree.cc";
+        var localhost = "127.0.0.1/ForestBlog_war_exploded/";
+
+        function getQueryVariable(variable) {
+            let query = window.location.search.substring(1);
+            let vars = query.split("&");
+            for (let i = 0; i < vars.length; i++) {
+                let pair = vars[i].split("=");
+                if (pair[0] == variable) { return pair[1]; }
+            }
+            return 0;
+        }
+
+        var str = window.location.search;
+        var pageIndex = getQueryVariable("pageIndex");
+        if (pageIndex == 0) {
+            pageIndex = 1;
+        }
+        var app = new Vue({
+            el: '#page',
+            data() {
+                return {
+                    notices: [
+                        {
+                            "noticeId": 1,
+                            "noticeTitle": "title1",
+                            "noticeOrder": 1
+                        }],
+
+                    article_data: {
+                        "pageNum": 1,
+                        "pages": 3,
+                        "list": [
+                            {
+                                "articleId": 32,
+                                "articleTitle": "helloword",
+                                "articleSummary": "hello world",
+                                "articleStatus": 1,
+                                "articleCreateTime": 1543179905000,
+                                "articleUpdateTime": 1556228578000,
+                                "articleViewCount": 14,
+                                "articlePicUrl": "/",
+                                "categoryList": [
+                                    {
+                                        "categoryId": 15,
+                                        "categoryPid": 0,
+                                        "categoryName": "其他技术",
+                                        "categoryOrder": null,
+                                        "articleCount": null
+                                    }
+                                ]
+                            }
+                        ],
+                        "navigatepageNums": [
+                            1,
+                            2,
+                            3
+                        ]
+                    }
+                }
+            },
+            mounted() {
+                this.getNotices();
+                this.getArticles();
+            },
+            methods: {
+                getArticles: function () {
+                    axios.get(domain + "/article", {
+                        params: {
+                            pageIndex: pageIndex
+                        }
+                    }).then(response => {
+                        if (response.data.code == 100) {
+                            this.article_data = response.data.data;
+							console.log(this.article_data);
+                        }
+                    }).catch(function (error) {
+                        // console.log(error);
+                        alert('articles axios failed');
+                    });
+                },
+
+                getNotices: function () {
+                    axios.get(domain + '/notice/getIndexNotice', {
+                    }).then(response => {
+                        if (response.data.code == 100) {
+                            this.notices = response.data.data;
+                        }
+                    }).catch(function (error) {
+                        // console.log(error);
+                        // alert('axios failed');
+                    });
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
