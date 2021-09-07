@@ -98,22 +98,82 @@
 
 
 
+## 获取顶部菜单栏类别
 
+- get   /category/getCategories
+- 请求参数：无
+- 返回示例
 
 ```json
-"code": 100,
-"msg": "success",
-"data": {
-    "preAndNext": [
+{
+    "code": 100,
+    "msg": "success",
+    "data": [
         {
-            "articleId":1,
-            "articleTitle": "title"
+            "categoryId": 1,
+            "categoryName": "parent",
+            "childern": [
+                {
+                    "categoryId": 1,
+                    "categoryName": "child"
+                },
+                {
+                    "categoryId": 1,
+                    "categoryName": "child2"
+                }
+            ]
+        },
+        {
+            "categoryId": 2,
+            "categoryName": "parent2",
+            "childern": [
+                {
+                    "categoryId": 1,
+                    "categoryName": "child1"
+                },
+                {
+                    "categoryId": 1,
+                    "categoryName": "child2"
+                }
+            ]
         }
-    ],
-    "articleInfo":{
-    	
-	}
+    ]
 }
 
+```
+
+
+
+## 获取热门文章
+
+- get /article/getHot
+- 请求参数：无
+- 返回示例
+
+```json
+{
+    "code": 100,
+    "msg": "success",
+    "data": [
+        {
+            "articleId": 1,
+            "articleName": "parent",
+            "articlePicUrl": "/"
+        }
+    ]
+}
+```
+
+
+
+
+
+# 获取站点基本信息
+
+- get /info/getInfo
+- 请求参数：无
+- 返回示例
+
+```json
 ```
 
