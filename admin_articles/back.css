@@ -45,8 +45,8 @@
 }
 
 .pagination .current {
-    background-color: #398898;
-    color: #ffffff;
+    /* background-color: #398898; */
+    color: #1ee058;
     border: 1px solid #398898;
 }
 .pagination .dots {

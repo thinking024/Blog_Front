@@ -118,7 +118,7 @@
             <div style="padding: 15px;">
                 <blockquote class="layui-elem-quote">
                     <span class="layui-breadcrumb" lay-separator="/" style="visibility: visible;">
-                        <a href="./admin_articles.html">首页<span class="layui-box">/</span></a>
+                        <a href="./admin_articles.html">后台首页<span class="layui-box">/</span></a>
                         <a><cite>文章列表</cite></a>
                     </span>
                 </blockquote>
@@ -132,10 +132,10 @@
                             <colgroup>
                                 <col width="300">
                                 <col width="150">
-                                <col width="100">
+                                <col width="70">
                                 <col width="150">
                                 <col width="50">
-                                <col width="100">
+                                <col width="150">
                             </colgroup>
                             <thead>
                                 <tr>
@@ -218,7 +218,7 @@
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
     <script>
         // var domain = "http://4snyng.natappfree.cc";
-        var domain = "http://v826v5.natappfree.cc";
+        var domain = "http://localhost:8080/MyBlog_war_exploded";
         var local = "127.0.0.1/";
 
         function getQueryVariable(variable) {
@@ -229,6 +229,19 @@
                 if (pair[0] == variable) { return pair[1]; }
             }
             return 0;
+        }
+
+        function getTokenCookie() {
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var arr = cookies[i].split("=");
+                var name = arr[0];
+                var value = arr[1];
+                if (name == 'token') {
+                    return value;
+                }
+            }
+            return "no token";
         }
 
         var str = window.location.search;
@@ -277,7 +290,7 @@
             },
             methods: {
                 getArticles: function () {
-                    $.ajax({
+                    /* $.ajax({
                         url: domain + "/admin/index",  // 发送的路径
                         // xhrFields: {
                         //     withCredentials: true
@@ -295,14 +308,16 @@
                         error: () => {
                             alert("ajax failed");
                         }
-                    });
+                    }); */
 
-                    /*axios.get(domain + "/admin/index", {
+                    var token = getTokenCookie();
+                    console.log(token);
+
+                    axios.get(domain + "/admin/index", {
                         params: {
-                            pageIndex: pageIndex
-                        },
-                        withCredentials: true,
-                        crossDomain: true
+                            pageIndex: pageIndex,
+                            token: token
+                        }
                     }).then(response => {
                         console.log(response);
                         if (response.data.code == 100) {
@@ -313,7 +328,7 @@
                         console.log(error);
                         // window.location.href="/login.html";
                         // alert('articles axios failed');
-                    });*/
+                    });
                 }
             }
         });
