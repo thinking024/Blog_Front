@@ -162,6 +162,7 @@ function checkUserName() {
 function checkUserEmail() {
     var result;
     $.ajax({
+        
         async: false,//同步，待请求完毕后再执行后面的代码
         type: "POST",
         url: '/admin/user/checkUserEmail',

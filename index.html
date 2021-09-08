@@ -155,7 +155,7 @@
 
                             <!-- 文章分类 -->
                             <span class="cat">
-                                <a v-bind:href="['./category.html?categoryId=' + category.categoryPid]"
+                                <a v-bind:href="['./category.html?categoryId=' + category.categoryId]"
                                     v-for="category in article.categoryList" v-if="category.categoryPid == 0">
                                     {{category.categoryName}}</a>
                             </span>
@@ -166,14 +166,14 @@
                             <h2 class="entry-title">
                                 <a v-bind:href="['./article_detail.html?articleId=' + article.articleId]"
                                     rel="bookmark">
-                                    {{article.articleTitle}}....</a>
+                                    {{article.articleTitle}}</a>
                             </h2>
                         </header>
 
                         <div class="entry-content">
                             <!-- 文章内容 todo-->
                             <div class="archive-content">
-                                {{article.articleSummary}}
+                                {{article.articleSummary}}.....
                             </div>
                             <span class="title-l"></span>
                             <span class="new-icon">
