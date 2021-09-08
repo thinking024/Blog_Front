@@ -134,8 +134,8 @@
                                 <col width="150">
                                 <col width="100">
                                 <col width="150">
-                                <col width="100">
                                 <col width="50">
+                                <col width="100">
                             </colgroup>
                             <thead>
                                 <tr>
@@ -143,37 +143,40 @@
                                     <th>所属分类</th>
                                     <th>状态</th>
                                     <th>更新时间</th>
-                                    <th>操作</th>
                                     <th>id</th>
+                                    <th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="article in articles_data.list">
-                                    <td>
+                                    <td style="display: table-cell;vertical-align: middle">
                                         <a v-bind:href="['./article_detail.html?articleId=' + article.articleId]"
                                             target="_blank">
                                             {{article.articleTitle}}</a>
                                     </td>
-                                    <td>
+                                    <td style="display: table-cell;vertical-align: middle">
                                         <a v-for="category in article.categoryList"
                                             v-bind:href="['./category.html?categoryId=' + category.categoryId]"
                                             target=" _blank">{{category.categoryName}} &nbsp;</a>
                                     </td>
-                                    <td>
+                                    <td style="display: table-cell;vertical-align: middle">
                                         <a href="http://tmr4sa.natappfree.cc/admin/article?status=1">
                                             <span v-if="article.articleStatus === 1" style="color:#5FB878;">已发布</span>
                                             <span v-else style="color:#FF5722;">草稿</span>
                                         </a>
                                     </td>
-                                    <td>
-                                        {{article.articleUpdateTime}}</td>
-                                    <td>
-                                        <a v-bind:href="['./edit_article.html?articleId=' + article.articleId]"
-                                            class="layui-btn layui-btn-mini">编辑</a>
-                                        <a href="javascript:void(0)" onclick="deleteArticle(32)"
-                                            class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+                                    <td style="display: table-cell;vertical-align: middle">{{article.articleUpdateTime}}
                                     </td>
-                                    <td>{{article.articleId}}</td>
+                                    <td style="display: table-cell;vertical-align: middle">{{article.articleId}}</td>
+                                    <td style="display: table-cell;vertical-align: middle">
+                                        <a v-bind:href="['./edit_article.html?articleId=' + article.articleId]"
+                                            class="layui-btn layui-btn-sm">编辑</a>
+                                        <!-- <a href="javascript:void(0)" onclick="deleteArticle(article.articleId)"
+                                            class="layui-btn layui-btn-danger layui-btn-sm">删除</a> -->
+
+                                        <a href="javascript:void(0)" v-on:click="deleteArticle(article.articleId)"
+                                            class="layui-btn layui-btn-danger layui-btn-sm">删除</a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -215,7 +218,7 @@
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
     <script>
         // var domain = "http://4snyng.natappfree.cc";
-        var domain = "http://b7t72k.natappfree.cc";
+        var domain = "http://v826v5.natappfree.cc";
         var local = "127.0.0.1/";
 
         function getQueryVariable(variable) {
@@ -274,19 +277,43 @@
             },
             methods: {
                 getArticles: function () {
-                    axios.get("/json/home/articles.json", {
+                    $.ajax({
+                        url: domain + "/admin/index",  // 发送的路径
+                        // xhrFields: {
+                        //     withCredentials: true
+                        // },
+                        // crossDomain: true,
+                        type: "get",  // 发送方式
+                        dataType: 'JSON',  // 返回的json数据
+                        success: (result) => {  // 成功获取到后端返回结果的回调函数
+                            console.log(result);
+                            if (result.statusCode === 100) {
+                            } else {
+                                console.log(result.msg);
+                            }
+                        },
+                        error: () => {
+                            alert("ajax failed");
+                        }
+                    });
+
+                    /*axios.get(domain + "/admin/index", {
                         params: {
                             pageIndex: pageIndex
-                        }
+                        },
+                        withCredentials: true,
+                        crossDomain: true
                     }).then(response => {
+                        console.log(response);
                         if (response.data.code == 100) {
                             this.articles_data = response.data.data;
                             console.log(this.articles_data);
                         }
                     }).catch(function (error) {
-                        // console.log(error);
+                        console.log(error);
+                        // window.location.href="/login.html";
                         // alert('articles axios failed');
-                    });
+                    });*/
                 }
             }
         });

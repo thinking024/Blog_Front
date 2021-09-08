@@ -72,6 +72,7 @@ function insertDraft() {
 
 //删除文章
 function deleteArticle(id) {
+    console.log("deleteId" + id);
     if(confirmDelete()==true){
         $.ajax({
             async: false,
@@ -162,7 +163,7 @@ function checkUserName() {
 function checkUserEmail() {
     var result;
     $.ajax({
-        
+
         async: false,//同步，待请求完毕后再执行后面的代码
         type: "POST",
         url: '/admin/user/checkUserEmail',
