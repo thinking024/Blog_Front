@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://localhost/admin/article/edit/32 -->
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="shortcut icon" href="http://localhost/img/logo.png">
+    <title>
+        部落格后台
+
+        - 编辑文章
+    </title>
+    <link rel="stylesheet" href="./edit_article_files/layui.css">
+    <link rel="stylesheet" href="./edit_article_files/back.css">
+    <link rel="stylesheet" href="./edit_article_files/font-awesome.min.css">
+    <link id="layuicss-laydate" rel="stylesheet" href="./edit_article_files/laydate.css" media="all">
+    <link id="layuicss-layer" rel="stylesheet" href="./edit_article_files/layer.css" media="all">
+    <link id="layuicss-skincodecss" rel="stylesheet" href="./edit_article_files/code.css" media="all">
+    <!-- <style>
+        [v-cloak] {
+            display: none !important;
+        }
+    </style> -->
+</head>
+
+<body>
+    <div class="layui-layout layui-layout-admin" id="page">
+        <div class="layui-header">
+            <div class="layui-logo"><a href="./admin_articles.html" style="color:#009688;">
+                    部落格后台
+                </a>
+            </div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <!-- <li class="layui-nav-item">
+                    <a href="javascript:;">新建<span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child layui-anim layui-anim-upbit">
+                        <dd><a href="./admin_articles.html">文章</a></dd>
+                        <dd><a href="http://tmr4sa.natappfree.cc/admin/page/insert">页面</a></dd>
+                        <dd><a href="http://tmr4sa.natappfree.cc/admin/category/insert">分类</a></dd>
+                        <dd><a href="http://tmr4sa.natappfree.cc/admin/notice/insert">公告</a></dd>
+                        <dd><a href="http://tmr4sa.natappfree.cc/admin/link/insert">链接</a></dd>
+                    </dl>
+                </li> -->
+                <span class="layui-nav-bar"></span>
+            </ul>
+
+            <ul class="layui-nav layui-layout-right">
+                <!-- <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="./admin_articles/avatar1.jpg" class="layui-nav-img">
+                        admin<span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="http://tmr4sa.natappfree.cc/admin/profile">基本资料</a></dd>
+                    </dl>
+                </li> -->
+                <li class="layui-nav-item"><a href="./index.html" target="_blank">前台</a></li>
+                <li class="layui-nav-item">
+                    <span onclick="deleteTokenCookie()" class="layui-btn layui-btn-mini layui-btn-primary">退出登录</span>
+                    <!-- <a href="http://tmr4sa.natappfree.cc/admin/logout">退出登录</a> -->
+                </li>
+                <span class="layui-nav-bar"></span>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">文章<span class="layui-nav-more"></span></a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="http://tmr4sa.natappfree.cc/admin/article">全部文章</a></dd>
+                            <dd><a href="http://tmr4sa.natappfree.cc/admin/article/insert">写文章</a></dd>
+                            <dd><a href="http://tmr4sa.natappfree.cc/admin/category">全部分类</a></dd>
+                        </dl>
+                    </li>
+
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;">
+                            链接
+                            <span class="layui-nav-more"></span></a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="http://tmr4sa.natappfree.cc/admin/link">全部链接</a></dd>
+                            <dd><a href="http://tmr4sa.natappfree.cc/admin/link/insert">添加链接</a></dd>
+                        </dl>
+                    </li>
+
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">公告<span class="layui-nav-more"></span></a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="http://tmr4sa.natappfree.cc/admin/notice">全部公告</a></dd>
+                            <dd><a href="http://tmr4sa.natappfree.cc/admin/notice/insert">添加公告</a></dd>
+                        </dl>
+                    </li>
+
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">设置<span class="layui-nav-more"></span></a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="http://tmr4sa.natappfree.cc/admin/menu">菜单</a></dd>
+                            <dd><a href="http://tmr4sa.natappfree.cc/admin/options">主要选项</a></dd>
+                        </dl>
+                    </li>
+                    <span class="layui-nav-bar" style="top: 22.5px; height: 0px; opacity: 0;"></span>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;">
+                <blockquote class="layui-elem-quote">
+                    <span class="layui-breadcrumb" lay-separator="/" style="visibility: visible;">
+                        <a href="http://localhost/admin">首页<span class="layui-box">/</span></a>
+                        <a href="http://localhost/admin/article">文章列表<span class="layui-box">/</span></a>
+                        <a><cite>编辑文章</cite></a>
+                    </span>
+                </blockquote>
+
+
+                <form class="layui-form" method="post" id="myForm" action="http://localhost/admin/article/editSubmit">
+                    <input type="hidden" name="articleId" value="32">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">标题 <span style="color: #FF5722; ">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="articleTitle" lay-verify="title" id="title"
+                                value="Docker_入门？只要这篇就够了！（纯干货适合0基础小白）" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">内容 <span style="color: #FF5722; ">*</span></label>
+                        <div class="layui-input-block">
+                            <textarea class="layui-textarea layui-hide" name="articleContent"
+                                id="content">&lt;p&gt;原文地址：&lt;a href="https://liuyanzhao.com/wp-content/themes/begin/inc/go.php?url=https://blog.csdn.net/S_gy_Zetrov/article/details/78161154" target="_blank" rel="noopener noreferrer"&gt;https://blog.csdn.net/S_gy_Zetrov/article/details/78161154&lt;/a&gt;&lt;/p&gt;&lt;h2 id="写在前面"&gt;写在前面&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;这篇博客适合谁？&lt;ul&gt;&lt;li&gt;对于Docker并不了解，只是有一点模糊的感觉，觉得Docker可以当成虚拟机用之类的&lt;/li&gt;&lt;li&gt;只是下载了Docker软件，对于怎么配置，怎么玩，第一步干什么，完全一无所知&lt;/li&gt;&lt;li&gt;本文适用于mac，PC用户不保证文章的效果，现在离开来得及&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;网上Docker相关的教程都泛滥了，为啥还要写，为啥我要看你的文章&lt;ul&gt;&lt;li&gt;首先欢迎你，能搜索到我的博客就是缘分&lt;/li&gt;&lt;li&gt;其次，确实，现在Docker相关的文章真的太多了，那我为什么还要写呢？原因有三：&lt;ul&gt;&lt;li&gt;其一，文章是很多，各种1小时入门什么的，相信你已经在知乎看过很多了，我也看过，&lt;br&gt;因为我就是从知乎那几篇教程为起点，自己抠出来的，现在把自己的心得和经验贴出来，我觉得既是对自己负责也能服务他人。&lt;/li&gt;&lt;li&gt;其二，我从对Docker只有及其模糊（真的是模糊，我除了知道Docker是跟虚拟系统有关其他啥都不知道），到现在起码一&lt;br&gt;问一不知（对应一问三不知）的状态，大概花了8个小时。这期间全靠我从网络上搜索到的资料。现在用我的话写出来，我觉得对于跟我相同开始情况的小白用户，能省不少时间，所以我要写。&lt;/li&gt;&lt;li&gt;其三，因为我自己是纯靠搜索到的教程和技术文章学习的Docker，我自然是懂得干涩的语言对学习的拖慢。所以我自己写的时候，自然会考虑到这个问题。本文尽量不用技术用语，尽量使用通俗易懂的文字，为进一步拉低Docker的入门门槛作出我自己的贡献。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;这篇文章主要是哪方面的Docker文章，纯入门？你做了哪些工作？&lt;ul&gt;&lt;li&gt;很高兴你问了我这个问题。本文主要：&lt;ul&gt;&lt;li&gt;首先对于Docker的概念作出我的解释，尽量通俗易懂&lt;/li&gt;&lt;li&gt;接着针对我用Docker的目的，从最开始的软件下载，到最后push一个自己的镜像到hub，整个过程以白话的形式描述出来，降低入门门槛，节省你的学习时间&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;我做了哪些工作？这是个好问题！&lt;ul&gt;&lt;li&gt;首先，我一直都很好奇Docker这个东西，但从来没有机会去使用它。但是，这学期OS课的lab，纯Linux系统编程，虽然使用双系统或者虚拟机都是纯小学生的难易程度了，也不麻烦，但我想，为什么不用Docker呢？用双系统或者虚拟机也太过小儿科！所以，我就这样接触了Docker&lt;/li&gt;&lt;li&gt;那么我使用Docker实现了什么？在lab中，我们需要用到的是纯终端下的gcc工具链还有vim等，那么这就是我需要的全部软件了！于是我在Docker中实现了「gcc+gdb&lt;br&gt;+vim」环境，并push到了hub中。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;你这篇博客有没有抄别人的？&lt;ul&gt;&lt;li&gt;额，我学习Docker时确实看了很多很多（真的是很多）文章，现在写这篇博客，除了自己的经验心得，自然还得去看那些文章。但我能保证的是，我写的都是取精华去糟粕，不然这篇文章就不必存在了你说是不是？&lt;/li&gt;&lt;li&gt;参考资料会在文后统一附上，谢谢！&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;好了，闲话说完，我们开始吧！&lt;/p&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;h2 id="入门docker你要下载什么注册什么"&gt;入门Docker，你要下载什么？注册什么？&lt;/h2&gt;&lt;p id="dockerapp你肯定是要下载的"&gt;&lt;strong&gt;&lt;span&gt;+ Docker.app你肯定是要下载的！&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Docker for mac，这个你肯定要下载：&lt;a href="https://liuyanzhao.com/wp-content/themes/begin/inc/go.php?url=https://www.docker.com/community-edition" target="_blank" rel="noopener noreferrer"&gt;点我下载Docker for mac的社区免费版本&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p id="注册docker官方账号你需要它"&gt;&lt;strong&gt;&lt;span&gt;+ 注册Docker官方账号，你需要它！&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;注册一个Docker的官方账号，有利而无害，相信我！&lt;a href="https://liuyanzhao.com/wp-content/themes/begin/inc/go.php?url=https://cloud.docker.com/swarm/sgyzetrov/dashboard/onboarding/cloud-registry" target="_blank" rel="noopener noreferrer"&gt;点我注册Docker Cloud官方账号&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Docker安装好，账号也注册后，点击桌面顶栏的Docker图标，点击sign in，登陆你的Docker账号。&lt;/p&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;h2 id="注册daocloud账号获取加速服务"&gt;&lt;span&gt;+ 注册DaoCloud账号，获取加速服务！&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;不可否认，有时直接从Docker官方往本地pull镜像会十分缓慢。。。这时我们可以通过国内的Docker服务提供商免费获取加速pull镜像服务，阿里网易好像都有这种服务，我选择的是DaoCloud：&lt;a href="https://liuyanzhao.com/wp-content/themes/begin/inc/go.php?url=https://account.daocloud.io/signup" target="_blank" rel="noopener noreferrer"&gt;点我注册DaoCloud账号&lt;/a&gt;&lt;/p&gt;&lt;p&gt;注册后登陆DaoCloud，找到这个按钮：&lt;/p&gt;&lt;p&gt;&lt;img title="" data-original="https://img-blog.csdn.net/20171005113053850?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU19neV9aZXRyb3Y=/font/5a6L5L2T/fontsize/1400/fill/I0ZGMDAwMA==/dissolve/90/gravity/Center" src="https://media.liuyanzhao.com/wp-content/themes/begin/img/blank.gif" alt="docker1.png"&gt;&lt;/p&gt;&lt;p&gt;接着，按照它的步骤，为自己添加Docker加速服务&lt;/p&gt;&lt;p&gt;&lt;img title="" data-original="https://img-blog.csdn.net/20171005113639144?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU19neV9aZXRyb3Y=/font/5a6L5L2T/fontsize/1400/fill/I0ZGMDAwMA==/dissolve/70/gravity/Center" src="https://media.liuyanzhao.com/wp-content/themes/begin/img/blank.gif" alt="docker2"&gt;&lt;/p&gt;&lt;h4&gt;&lt;/h4&gt;&lt;p id="到此准备工作结束进入下一部分"&gt;&lt;strong&gt;&lt;span&gt;+ 到此准备工作结束，进入下一部分！&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;h2 id="要想入门docker首先你需要理解docker"&gt;要想入门Docker，首先你需要理解Docker！&lt;/h2&gt;&lt;p&gt;我也不扯淡了，直接上我对Docker的理解：(Copyright ©&nbsp;&lt;a href="https://liuyanzhao.com/wp-content/themes/begin/inc/go.php?url=http://blog.csdn.net/s_gy_zetrov" target="_blank" rel="noopener noreferrer"&gt;http://blog.csdn.net/s_gy_zetrov&lt;/a&gt;. All Rights Reserved)&lt;/p&gt;&lt;p&gt;Docker，可以说是一个终端命令行的虚拟机，但更准确的说法，其实应该是一个虚拟环境。比如，你想要在PC上无缝使用Linux么？那么虚拟机并不是你唯一的出路，你还有Docker！我更愿意称Docker为一个容器，当然这只是Docker的一个狭义解释，Docker不止是一个容器。Docker包含3个重要概念：&lt;/p&gt;&lt;ul&gt;&lt;li&gt;一个，是镜像（Image），镜像是静态的、可以被用户互相分享的文件。我们玩过双系统和虚拟机的人都知道，首先你需要一个.iso镜像，才能安装系统。Docker中的镜像也是这个东西，&lt;strong&gt;&lt;span&gt;镜像是静态的，你不能对他操作，只能pull别人的镜像或者push自己的镜像&lt;/span&gt;&lt;/strong&gt;。&lt;/li&gt;&lt;li&gt;还有一个，是容器（Container），前面说过，镜像是静态不可操作的，只能被分享和下载，那什么是能被操作的呢？就是容器里！容器可以理解为镜像的动态状态，也就是我们虚拟机中系统装好后的状态，其实这么说是不对的，容器最符合的描述应该是Linux的iso文件的&lt;code&gt;Live CD&lt;/code&gt;模式，比如我们玩双系统时都进入过&lt;code&gt;Live CD&lt;/code&gt;模式，不安装系统而直接进入系统，很神奇是吧，Docker的容器就是这个概念，只不过更加轻量更加迅速便捷。但是&lt;code&gt;Live CD&lt;/code&gt;的害处就是你关机后作出的修改安装的软件全部gg，&lt;strong&gt;&lt;span&gt;容器也是一样，一旦被直接推出，之前安装的gcc啊vim啊啥的就会全部gg掉。如果要保存修改，就需要将当前容器封装成一个新的镜像，这样下次启动这个新的镜像后之前作出的修改还都在&lt;/span&gt;&lt;/strong&gt;。&lt;/li&gt;&lt;li&gt;最后，是仓库（Repository）。各位在前面看到我写的pull和push什么的，有没有晕？不知道各位对于git熟悉不熟悉，Docker中的仓库很像git的代码仓库，你可以pull自己之前push到自己仓库的镜像到本地，也可以pull别人push到公共仓库的镜像到自己本地。说白了就是百度云盘，你可以上传（push）自己做好环境的Docker上去，也可以下载（pull）自己云端的镜像到本地。同时，我们知道百度云最大的特点就是分享（你懂的嘿嘿嘿），类比Docker，如果你得到百度云分享链接（别人的镜像名字、标签和别人的用户名），你还可以下载（pull）别人分享的镜像到自己的本地，别人也可以下载（pull）你的镜像，因为Docker仓库都是公共的。当然，每个免费用户有一个名额把自己的一个镜像设为私有，也就是禁止被分享给别人，类比百度云上你自己保存的而没有被生成分享链接的小姐姐。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;接下来来张高大上的概念图，各位看个热闹2333&lt;/p&gt;&lt;p&gt;&lt;img title="" data-original="https://img-blog.csdn.net/20171005120538429?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU19neV9aZXRyb3Y=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" src="https://media.liuyanzhao.com/wp-content/themes/begin/img/blank.gif" alt="docker3.png"&gt;&lt;/p&gt;&lt;h3 id="接下来就是实战了打开你的iterm2我是iterm2党2333打开普通terminal也行这个不影响"&gt;接下来就是实战了！打开你的iTerm2！（我是iTerm2党2333，打开普通terminal也行，这个不影响）&lt;/h3&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p id="查看docker版本信息"&gt;&lt;strong&gt;&lt;span&gt;+ 查看Docker版本信息&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs livecodeserver has-numbering"&gt;终端输入：
+&lt;strong&gt;&lt;span&gt;docker &lt;span class="hljs-built_in"&gt;version&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p&gt;显示的我的版本信息&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs r has-numbering"&gt; ~$ docker version
+Client:
+ Version:      &lt;span class="hljs-number"&gt;17.06&lt;/span&gt;&lt;span class="hljs-number"&gt;.2&lt;/span&gt;-ce
+ API version:  &lt;span class="hljs-number"&gt;1.30&lt;/span&gt;
+ Go version:   go1.8.3
+ Git commit:   cec0b72
+ Built:        Tue Sep  &lt;span class="hljs-number"&gt;5&lt;/span&gt; &lt;span class="hljs-number"&gt;20&lt;/span&gt;:&lt;span class="hljs-number"&gt;12&lt;/span&gt;:&lt;span class="hljs-number"&gt;06&lt;/span&gt; &lt;span class="hljs-number"&gt;2017&lt;/span&gt;
+ OS/Arch:      darwin/amd64
+ &lt;span class="hljs-keyword"&gt;...&lt;/span&gt;
+ //omitted by sgy(Copyright © http://blog.csdn.net/s_gy_zetrov. All Rights Reserved)
+ &lt;span class="hljs-keyword"&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;不过我一般不需要那么多信息，所以一直用的是&lt;code&gt;docker -v&lt;/code&gt;命令&lt;/p&gt;&lt;h4&gt;&lt;/h4&gt;&lt;p id="是时候pull你的第一个镜像下来的"&gt;&lt;strong&gt;&lt;span&gt;+ 是时候pull你的第一个镜像下来的！&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Docker安装好后是不会自带镜像的，你需要从仓库自己pull一个镜像下来，自己制作自己的镜像也是一个道理，你可以通过在已有的镜像基础上生成自己的镜像或者看一下这篇博客:&nbsp;&lt;a href="https://liuyanzhao.com/wp-content/themes/begin/inc/go.php?url=http://blog.csdn.net/shiqiangdexin/article/details/52472195" target="_blank" rel="noopener noreferrer"&gt;随便百度的如何创建自己Docker镜像得到的教程&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Docker镜像官方好像只提供Linux，这个很容易想，windows和mac是要交钱的吧大概？（否）&lt;/p&gt;&lt;p&gt;搜索ubuntu的Docker镜像&lt;strong&gt;&lt;span&gt;&lt;code&gt;docker search ubuntu&lt;/code&gt;&lt;/span&gt;&lt;/strong&gt;，这个如果你想要什么centos，直接改就行，不区分写法,我的返回结果：&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs r has-numbering"&gt;~$ docker search ubuntu
+NAME                                                   DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
+ubuntu                                                 Ubuntu is a Debian-based Linux operating s...   &lt;span class="hljs-number"&gt;6636&lt;/span&gt;                [OK]
+dorowu/ubuntu-desktop-lxde-vnc                         Ubuntu with openssh-server and NoVNC            &lt;span class="hljs-number"&gt;131&lt;/span&gt;                                     [OK]
+rastasheep/ubuntu-sshd                                 Dockerized SSH service, built on top of of...   &lt;span class="hljs-number"&gt;105&lt;/span&gt;                                     [OK]
+ansible/ubuntu14.04-ansible                            Ubuntu &lt;span class="hljs-number"&gt;14.04&lt;/span&gt; LTS with ansible                   &lt;span class="hljs-number"&gt;86&lt;/span&gt;                                      [OK]
+ubuntu-upstart                                         Upstart is an event-based replacement &lt;span class="hljs-keyword"&gt;for&lt;/span&gt; &lt;span class="hljs-keyword"&gt;...&lt;/span&gt;   &lt;span class="hljs-number"&gt;80&lt;/span&gt;                  [OK]
+neurodebian                                            NeuroDebian provides neuroscience research...   &lt;span class="hljs-number"&gt;40&lt;/span&gt;                  [OK]
+ubuntu-debootstrap                                     debootstrap --variant=minbase --components...   &lt;span class="hljs-number"&gt;31&lt;/span&gt;                  [OK]
+&lt;span class="hljs-keyword"&gt;...&lt;/span&gt;
+//omitted by sgy(Copyright © http://blog.csdn.net/s_gy_zetrov. All Rights Reserved)
+&lt;span class="hljs-keyword"&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p&gt;拉取官方最新版的ubuntu镜像：&lt;strong&gt;&lt;span&gt;&lt;code&gt;docker pull ubuntu:latest&lt;/code&gt;&lt;/span&gt;&lt;/strong&gt;，其中的latest是一个标签（tag），表示是当前最新版本。你应该得到的信息，类似这样的&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs r has-numbering"&gt;～$ docker pull ubuntu:latest
+Trying to pull repository docker.io/&lt;span class="hljs-keyword"&gt;library&lt;/span&gt;/ubuntu &lt;span class="hljs-keyword"&gt;...&lt;/span&gt; 
+latest: Pulling from docker.io/&lt;span class="hljs-keyword"&gt;library&lt;/span&gt;/ubuntu
+aed158d74952: Pull complete 
+773ae8273d14: Pull complete 
+d1d487w88782: Pull complete 
+cd3d6cd6c0cf: Pull complete 
+8d73bu79120c: Pull complete 
+Digest: sha256:35bc48a1ca97c3f74rhf378hj92hd82j29i4hf4hf84nf0dhnsid232de8d8
+Status: Downloaded newer image &lt;span class="hljs-keyword"&gt;for&lt;/span&gt; docker.io/ubuntu:latest&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;&lt;span&gt;你输入的命令实际上相当于&lt;code&gt;docker pull registry.hub.docker.com/ubuntu:latest&lt;/code&gt;命令，即从注册服务器&lt;code&gt;registry.hub.docker.com&lt;/code&gt;中的名为&lt;code&gt;ubuntu&lt;/code&gt;的仓库中下载标签为&lt;code&gt;latest&lt;/code&gt;的镜像&lt;/span&gt;&lt;/strong&gt;。&lt;/p&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p&gt;由于我的lab统一要求，ubuntu需要14.04版本，所以我在hub里面搜了搜，&lt;strong&gt;&lt;span&gt;找到了一个用户分享的14.04 64位纯净镜像（base image）&lt;/span&gt;&lt;/strong&gt;，下面将他的镜像扒下来&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs ruby has-numbering"&gt;~&lt;span class="hljs-variable"&gt;$ &lt;/span&gt;docker pull chug/ubuntu14.&lt;span class="hljs-number"&gt;04&lt;/span&gt;x64&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个用户还有很多其他版本的ubuntu系统，12 13 14的32位64位都有，全是纯净镜像。&lt;/p&gt;&lt;h4&gt;&lt;/h4&gt;&lt;p id="查看你本地的镜像仓库"&gt;&lt;strong&gt;&lt;span&gt;+ 查看你本地的镜像仓库！&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;把初始镜像拉下来后，就可以启动它了，不过，可以先使用&lt;code&gt;docker images&lt;/code&gt;命令查看你自己的本地镜像，我随便找了个例子，你的也应该是类似这样的：&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs lua has-numbering"&gt;～$ &lt;span&gt;&lt;strong&gt;docker images&lt;/strong&gt;&lt;/span&gt;
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+docker.&lt;span class="hljs-built_in"&gt;io&lt;/span&gt;/ubuntu    &lt;span class="hljs-number"&gt;16.04&lt;/span&gt;               e4415b714b62        &lt;span class="hljs-number"&gt;11&lt;/span&gt; days ago         &lt;span class="hljs-number"&gt;128.1&lt;/span&gt; MB
+docker.&lt;span class="hljs-built_in"&gt;io&lt;/span&gt;/ubuntu    latest              e4415b714b62        &lt;span class="hljs-number"&gt;11&lt;/span&gt; days ago         &lt;span class="hljs-number"&gt;128.1&lt;/span&gt; MB
+docker.&lt;span class="hljs-built_in"&gt;io&lt;/span&gt;/ubuntu    &lt;span class="hljs-number"&gt;12.04&lt;/span&gt;               aefa163f7a7e        &lt;span class="hljs-number"&gt;11&lt;/span&gt; days ago         &lt;span class="hljs-number"&gt;103.5&lt;/span&gt; MB
+docker.&lt;span class="hljs-built_in"&gt;io&lt;/span&gt;/centos    latest              &lt;span class="hljs-number"&gt;0584&lt;/span&gt;b3d2cf6d        &lt;span class="hljs-number"&gt;3&lt;/span&gt; weeks ago         &lt;span class="hljs-number"&gt;196.5&lt;/span&gt; MB&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p&gt;从网上一个教程中找到以下说法，比我说的好，那就看这个吧！&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;在列出信息中，可以看到几个字段信息:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;来自于哪个仓库，比如 ubuntu&lt;/li&gt;&lt;li&gt;镜像的标记，比如 16.04&lt;/li&gt;&lt;li&gt;它的 ID 号(唯一)，比如e4415b714b62&lt;/li&gt;&lt;li&gt;创建时间&lt;/li&gt;&lt;li&gt;镜像大小&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;其中镜像的 ID 唯一标识了镜像，注意到 ubuntu:16.04 和 ubuntu:latest具有相同的镜像 ID ，说明它们实际上是同一镜像。 TAG 信息用来标记来自同一个仓库的不同镜像。例如 ubuntu 仓库中有多个镜像，通过 TAG 信息来区分发行版本，例如10.04 、 12.04 、 12.10 、 13.04 、 14.04 等。例如可以使用&lt;code&gt;docker run -t -i ubuntu:16.04 /bin/bash&lt;/code&gt;命令指定使用镜像&lt;code&gt;ubuntu:16.04&lt;/code&gt;来启动一个容器。如果不指定具体的标记，则默认使用&lt;code&gt;latest&lt;/code&gt;标记信息。&lt;/p&gt;&lt;/blockquote&gt;&lt;h4&gt;&lt;/h4&gt;&lt;p id="启动你的镜像并尽情安装软件吧"&gt;&lt;strong&gt;&lt;span&gt;+ 启动你的镜像并尽情安装软件吧！&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;以下内容均以我自己pull下来的chug的初始镜像为例：&lt;/p&gt;&lt;p&gt;现在你已经有一个初始的镜像了，注意这个里面是什么都没有的，连vim都没装，是精简到不能再精简的镜像了。&lt;/p&gt;&lt;p&gt;首先启动它：&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs ruby has-numbering"&gt;～&lt;span class="hljs-variable"&gt;$ &lt;/span&gt;docker run -it chug/ubuntu14.&lt;span class="hljs-number"&gt;04&lt;/span&gt;x64 /bin/bash
+root&lt;span class="hljs-variable"&gt;@aa97ba3292ce&lt;/span&gt;&lt;span class="hljs-symbol"&gt;:/&lt;/span&gt;&lt;span class="hljs-comment"&gt;#&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;&lt;span&gt;-it 表示运行在交互模式，是-i -t的缩写，即-it是两个参数：-i和-t。前者表示打开并保持stdout，后者表示分配一个终端（pseudo-tty）一般这个模式就是可以启动bash，然后和容器有命令行的交互&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;可以看到我们终端的字头变成&lt;code&gt;root@aa97ba3292ce:/#&lt;/code&gt;了，这就意味着我们的镜像已经创建了一个容器实例。现在我们可以对这个“ubuntu系统”进行操作了&lt;/p&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p&gt;比如安装vim：&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs applescript has-numbering"&gt;root@aa97ba3292ce:/&lt;span class="hljs-comment"&gt;# &lt;strong&gt;&lt;span&gt;apt-get install vim&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;
+Reading package lists... Done
+Building dependency tree... Done
+The following extra packages will be installed:
+  &lt;span class="hljs-type"&gt;file&lt;/span&gt; libexpat1 libffi6 libgpm2 libmagic1 libpython2&lt;span class="hljs-number"&gt;.7&lt;/span&gt; libpython2&lt;span class="hljs-number"&gt;.7&lt;/span&gt;-minimal libpython2&lt;span class="hljs-number"&gt;.7&lt;/span&gt;-stdlib libsqlite3-&lt;span class="hljs-number"&gt;0&lt;/span&gt; libssl1&lt;span class="hljs-number"&gt;.0&lt;/span&gt;&lt;span class="hljs-number"&gt;.0&lt;/span&gt; mime-support vim-common vim-runtime
+Suggested packages:
+  gpm ctags vim-doc vim-scripts
+The following NEW packages will be installed:
+  &lt;span class="hljs-type"&gt;file&lt;/span&gt; libexpat1 libffi6 libgpm2 libmagic1 libpython2&lt;span class="hljs-number"&gt;.7&lt;/span&gt; libpython2&lt;span class="hljs-number"&gt;.7&lt;/span&gt;-minimal libpython2&lt;span class="hljs-number"&gt;.7&lt;/span&gt;-stdlib libsqlite3-&lt;span class="hljs-number"&gt;0&lt;/span&gt; libssl1&lt;span class="hljs-number"&gt;.0&lt;/span&gt;&lt;span class="hljs-number"&gt;.0&lt;/span&gt; mime-support vim vim-common vim-runtime
+&lt;span class="hljs-number"&gt;0&lt;/span&gt; upgraded, &lt;span class="hljs-number"&gt;14&lt;/span&gt; newly installed, &lt;span class="hljs-number"&gt;0&lt;/span&gt; &lt;span class="hljs-keyword"&gt;to&lt;/span&gt; remove &lt;span class="hljs-keyword"&gt;and&lt;/span&gt; &lt;span class="hljs-number"&gt;0&lt;/span&gt; &lt;span class="hljs-keyword"&gt;not&lt;/span&gt; upgraded.
+Need &lt;span class="hljs-keyword"&gt;to&lt;/span&gt; &lt;span class="hljs-keyword"&gt;get&lt;/span&gt; &lt;span class="hljs-number"&gt;10.7&lt;/span&gt; MB &lt;span class="hljs-keyword"&gt;of&lt;/span&gt; archives.
+After this operation, &lt;span class="hljs-number"&gt;50.7&lt;/span&gt; MB &lt;span class="hljs-keyword"&gt;of&lt;/span&gt; additional disk &lt;span class="hljs-constant"&gt;space&lt;/span&gt; will be used.
+Do you want &lt;span class="hljs-keyword"&gt;to&lt;/span&gt; &lt;span class="hljs-keyword"&gt;continue&lt;/span&gt;? [Y/n]&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;看到我没有用sudo，是因为本来就已经是超级用户（root）状态了。&lt;/p&gt;&lt;p&gt;同理按照我自己的需求，我安装了gcc和gdb&lt;/p&gt;&lt;h4&gt;&lt;/h4&gt;&lt;p id="想退出容器很简单"&gt;&lt;span&gt;&lt;strong&gt;+ 想退出容器？很简单！&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;如果使用exit，命令退出，则容器的状态处于Exit，而不是后台运行。如果想让容器一直运行，而不是停止，可以使用快捷键&nbsp;&lt;strong&gt;&lt;span&gt;ctrl+p ctrl+q&lt;/span&gt;&lt;/strong&gt;&nbsp;退出，此时容器的状态为Up。&lt;/p&gt;&lt;p&gt;查看当前正在运行的容器：&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs ruby has-numbering"&gt;~&lt;span class="hljs-variable"&gt;$ &lt;/span&gt;&lt;strong&gt;&lt;span&gt;docker ps&lt;/span&gt;&lt;/strong&gt;
+&lt;span class="hljs-constant"&gt;CONTAINER&lt;/span&gt; &lt;span class="hljs-constant"&gt;ID&lt;/span&gt;        &lt;span class="hljs-constant"&gt;IMAGE&lt;/span&gt;                 &lt;span class="hljs-constant"&gt;COMMAND&lt;/span&gt;             &lt;span class="hljs-constant"&gt;CREATED&lt;/span&gt;             &lt;span class="hljs-constant"&gt;STATUS&lt;/span&gt;              &lt;span class="hljs-constant"&gt;PORTS&lt;/span&gt;               &lt;span class="hljs-constant"&gt;NAMES&lt;/span&gt;
+aa97ba3292ce        chug/ubuntu14.&lt;span class="hljs-number"&gt;04&lt;/span&gt;x64   &lt;span class="hljs-string"&gt;"/bin/bash"&lt;/span&gt;         &lt;span class="hljs-number"&gt;7&lt;/span&gt; minutes ago       &lt;span class="hljs-constant"&gt;Up&lt;/span&gt; &lt;span class="hljs-number"&gt;7&lt;/span&gt; minutes                           relaxed_hoover&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p&gt;看到当前有一个ID为aa97ba3292ce的容器(Copyright ©&nbsp;&lt;a href="https://liuyanzhao.com/wp-content/themes/begin/inc/go.php?url=http://blog.csdn.net/s_gy_zetrov" target="_blank" rel="noopener noreferrer"&gt;http://blog.csdn.net/s_gy_zetrov&lt;/a&gt;. All Rights Reserved)&lt;/p&gt;&lt;p&gt;启动、停止、重启容器aa97ba3292ce的命令：&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs ruby has-numbering"&gt;~&lt;span class="hljs-variable"&gt;$ &lt;/span&gt;&lt;strong&gt;&lt;span&gt;docker start aa97ba3292ce&lt;/span&gt;&lt;/strong&gt;
+~&lt;span class="hljs-variable"&gt;$ &lt;/span&gt;&lt;span&gt;&lt;strong&gt;docker stop aa97ba3292ce&lt;/strong&gt;&lt;/span&gt;
+~&lt;span class="hljs-variable"&gt;$ &lt;/span&gt;&lt;span&gt;&lt;strong&gt;docker restart aa97ba3292ce&lt;/strong&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;&lt;span&gt;后台启动一个容器后，如果想进入到这个容器，可以使用attach命令&lt;/span&gt;&lt;/strong&gt;：&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs ruby has-numbering"&gt;~&lt;span class="hljs-variable"&gt;$ &lt;/span&gt;&lt;strong&gt;&lt;span&gt;docker attach aa97ba3292ce&lt;/span&gt;&lt;/strong&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h4&gt;&lt;/h4&gt;&lt;h4&gt;&lt;/h4&gt;&lt;p id="软件装完想保存环境commit帮你"&gt;&lt;span&gt;&lt;strong&gt;+ 软件装完，想保存环境？commit帮你！&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;将容器转化为一个镜像，即执行commit操作，完成后可使用&lt;strong&gt;&lt;span&gt;&lt;code&gt;docker images&lt;/code&gt;&lt;/span&gt;&lt;/strong&gt;查看&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs ruby has-numbering"&gt;root&lt;span class="hljs-variable"&gt;@aa97ba3292ce&lt;/span&gt;&lt;span class="hljs-symbol"&gt;:/&lt;/span&gt;&lt;span class="hljs-comment"&gt;#exit //先退出容器&lt;/span&gt;
+~&lt;span class="hljs-variable"&gt;$ &lt;/span&gt;&lt;strong&gt;&lt;span&gt;docker commit -m &lt;span class="hljs-string"&gt;"ubuntu with vim"&lt;/span&gt; -a &lt;span class="hljs-string"&gt;"sgy"&lt;/span&gt; aa97ba3292ce sgy/&lt;span class="hljs-symbol"&gt;ubuntu:&lt;/span&gt;vim&lt;/span&gt;&lt;/strong&gt;
+~&lt;span class="hljs-variable"&gt;$ &lt;/span&gt;docker images
+&lt;span class="hljs-constant"&gt;REPOSITORY&lt;/span&gt;                    &lt;span class="hljs-constant"&gt;TAG&lt;/span&gt;    &lt;span class="hljs-constant"&gt;IMAGE&lt;/span&gt; &lt;span class="hljs-constant"&gt;ID&lt;/span&gt;         &lt;span class="hljs-constant"&gt;CREATED&lt;/span&gt;             &lt;span class="hljs-constant"&gt;SIZE&lt;/span&gt;
+sgy/ubuntu                    vim    &lt;span class="hljs-number"&gt;52166&lt;/span&gt;e4475ed     &lt;span class="hljs-number"&gt;5&lt;/span&gt; seconds ago       &lt;span class="hljs-number"&gt;358.1&lt;/span&gt; &lt;span class="hljs-constant"&gt;MB&lt;/span&gt;
+chug/ubuntu14.&lt;span class="hljs-number"&gt;04&lt;/span&gt;x64           latest &lt;span class="hljs-number"&gt;05&lt;/span&gt;84b3d2cf6d     &lt;span class="hljs-number"&gt;9&lt;/span&gt; days ago          &lt;span class="hljs-number"&gt;196.5&lt;/span&gt; &lt;span class="hljs-constant"&gt;MB&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p&gt;其中，-m指定说明信息；-a指定用户信息；aa97ba3292ce代表容器的id；sgy/ubuntu:vim指定目标镜像的用户名、仓库名和 tag 信息。我这里都是为了博客瞎编的用户名，我自己的用户名也不是sgy，你运行命令的时候使用自己注册Docker时的用户名。&lt;/p&gt;&lt;p&gt;此时Docker中就有了我们新建的镜像sgy/ubuntu:vim，此镜像和原有的ubuntu镜像区别在于多了个vim工具。此时我们利用新镜像创建的容器，本身就自带vim了。&lt;/p&gt;&lt;p&gt;启动新创建的镜像，可以看到vim已经自带了。&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs r has-numbering"&gt;~$ &lt;strong&gt;&lt;span&gt;docker run -it sgy/ubuntu:vim /bin/bash&lt;/span&gt;&lt;/strong&gt;
+root@520afc596c51:/&lt;span class="hljs-comment"&gt;# vim --version&lt;/span&gt;
+VIM - Vi IMproved &lt;span class="hljs-number"&gt;7.4&lt;/span&gt; (&lt;span class="hljs-number"&gt;2013&lt;/span&gt; Aug &lt;span class="hljs-number"&gt;10&lt;/span&gt;, compiled Apr  &lt;span class="hljs-number"&gt;4&lt;/span&gt; &lt;span class="hljs-number"&gt;2017&lt;/span&gt; &lt;span class="hljs-number"&gt;18&lt;/span&gt;:&lt;span class="hljs-number"&gt;14&lt;/span&gt;:&lt;span class="hljs-number"&gt;54&lt;/span&gt;)
+&lt;span class="hljs-keyword"&gt;...&lt;/span&gt;
+//omitted by sgy(Copyright © http://blog.csdn.net/s_gy_zetrov. All Rights Reserved)
+&lt;span class="hljs-keyword"&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;利用exit退出容器。此时Docker引擎中就有了两个容器，可使用&lt;code&gt;docker ps -a&lt;/code&gt;查看。&lt;/p&gt;&lt;h4&gt;&lt;/h4&gt;&lt;h4&gt;+ 想要删除容器或者镜像？用这个！&lt;/h4&gt;&lt;p&gt;如果想删除容器或者镜像，可以使用rm命令，注意：&lt;span&gt;&lt;strong&gt;删除镜像前必须先删除以此镜像为基础的容器（哪怕是已经停止的容器），否则无法删除该镜像，会报错&lt;code&gt;Failed to remove image (e4415b714b62): Error response from daemon: conflict: unable to delete e4415b714b62 (cannot be forced) - image has dependent child images&lt;/code&gt;类似这种&lt;/strong&gt;&lt;/span&gt;。&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs ruby has-numbering"&gt;~&lt;span class="hljs-variable"&gt;$ &lt;/span&gt;&lt;strong&gt;&lt;span&gt;docker rm container_id&lt;/span&gt;&lt;/strong&gt;
+~&lt;span class="hljs-variable"&gt;$ &lt;/span&gt;&lt;span&gt;&lt;strong&gt;docker rmi image_id&lt;/strong&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p&gt;有的时候尽管删除了全部容器，镜像还是无法删除，这时点击mac顶栏中的docker logo，选择restart，然后再试一次rmi，应该就没问题了。(Copyright ©&nbsp;&lt;a href="https://liuyanzhao.com/wp-content/themes/begin/inc/go.php?url=http://blog.csdn.net/s_gy_zetrov" target="_blank" rel="noopener noreferrer"&gt;http://blog.csdn.net/s_gy_zetrov&lt;/a&gt;. All Rights Reserved)&lt;/p&gt;&lt;h4 id="附上一张高大上的docker命令图"&gt;+ 附上一张高大上的Docker命令图&lt;/h4&gt;&lt;p&gt;&lt;img title="" data-original="https://img-blog.csdn.net/20171005132826220" src="https://media.liuyanzhao.com/wp-content/themes/begin/img/blank.gif" alt="docker4.png"&gt;&lt;/p&gt;&lt;h4&gt;&lt;/h4&gt;&lt;p id="一次配置到处使用那就push到hub上吧"&gt;&lt;span&gt;&lt;strong&gt;+ 一次配置，到处使用？那就push到hub上吧！&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;因为之前已经在Docker.app中登陆了Docker账号，所以现在直接&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs ruby has-numbering"&gt;~&lt;span class="hljs-variable"&gt;$ &lt;/span&gt;&lt;strong&gt;&lt;span&gt;docker push sgy/&lt;span class="hljs-symbol"&gt;ubuntu:&lt;/span&gt;vim&lt;/span&gt;&lt;/strong&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;就可以了！&lt;/p&gt;&lt;p&gt;下次到了机房，在ubuntu系统中安装Docker，配置好加速器，启动Docker，&lt;strong&gt;&lt;span&gt;&lt;code&gt;docker login&lt;/code&gt;&lt;/span&gt;&lt;/strong&gt;登陆自己的账号，然后直接&lt;code&gt;~$&nbsp;&lt;span&gt;&lt;strong&gt;docker pull sgy/ubuntu:vim&lt;/strong&gt;&lt;/span&gt;&lt;/code&gt;就可以把你push到hub的已经配置好的环境的镜像给扒下来。做完实验，再push上去就ok了！&lt;/p&gt;&lt;h2&gt;&lt;/h2&gt;&lt;h2&gt;Docker中安装gcc、gdb时遇到的问题&lt;/h2&gt;&lt;p id="add-apt-repository-command-not-found"&gt;&lt;span&gt;&lt;strong&gt;+ add-apt-repository: command not found&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;14.04系统解决办法：&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs lasso has-numbering"&gt;apt&lt;span class="hljs-attribute"&gt;-get&lt;/span&gt; install software&lt;span class="hljs-attribute"&gt;-properties&lt;/span&gt;&lt;span class="hljs-attribute"&gt;-common&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p&gt;older版本的系统：&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs lasso has-numbering"&gt;apt&lt;span class="hljs-attribute"&gt;-get&lt;/span&gt; install python&lt;span class="hljs-attribute"&gt;-software&lt;/span&gt;&lt;span class="hljs-attribute"&gt;-properties&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h4&gt;&lt;/h4&gt;&lt;p id="docker中使用gdb无法进入断点无法调试"&gt;&lt;strong&gt;&lt;span&gt;+ Docker中使用gdb无法进入断点，无法调试&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;加上&lt;code&gt;--privileged&lt;/code&gt;参数&lt;/p&gt;&lt;pre class="prettyprint"&gt;&lt;code class="hljs applescript has-numbering"&gt;～$ docker &lt;span class="hljs-command"&gt;run&lt;/span&gt; -&lt;span class="hljs-keyword"&gt;it&lt;/span&gt; &lt;span class="hljs-comment"&gt;--privileged sgy/ubuntu:vim /bin/bash&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</textarea>
+                            <div class="layui-layedit">
+                                <div class="layui-unselect layui-layedit-tool"><i class="layui-icon layedit-tool-b"
+                                        title="加粗" lay-command="Bold" layedit-event="b" "=""></i><i class=" layui-icon
+                                        layedit-tool-i" title="斜体" lay-command="italic"
+                                        layedit-event="i" "=""></i><i class=" layui-icon layedit-tool-u" title="下划线"
+                                        lay-command="underline" layedit-event="u" "=""></i><i class=" layui-icon
+                                        layedit-tool-d" title="删除线" lay-command="strikeThrough"
+                                        layedit-event="d" "=""></i><span class=" layedit-tool-mid"></span><i
+                                            class="layui-icon layedit-tool-left layedit-tool-active" title="左对齐"
+                                            lay-command="justifyLeft" layedit-event="left" "=""></i><i class="
+                                            layui-icon layedit-tool-center" title="居中对齐" lay-command="justifyCenter"
+                                            layedit-event="center" "=""></i><i class=" layui-icon layedit-tool-right"
+                                            title="右对齐" lay-command="justifyRight"
+                                            layedit-event="right" "=""></i><i class=" layui-icon layedit-tool-link"
+                                            title="插入链接" layedit-event="link" "=""></i><i class=" layui-icon
+                                            layedit-tool-unlink layui-disabled" title="清除链接" lay-command="unlink"
+                                            layedit-event="unlink" "=""></i><i class=" layui-icon layedit-tool-face"
+                                            title="表情" layedit-event="face" "=""></i><i class=" layui-icon
+                                            layedit-tool-image" title="图片" layedit-event="image"><input type="file"
+                                                name="file"></i><i class="layui-icon layedit-tool-code" title="插入代码"
+                                            layedit-event="code"></i></div>
+                                <div class="layui-layedit-iframe"><iframe id="LAY_layedit_2" name="LAY_layedit_2"
+                                        textarea="content" frameborder="0" style="height: 280px;"
+                                        src="./edit_article_files/saved_resource.html"></iframe></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">分类 <span style="color: #FF5722; ">*</span></label>
+
+                        <div class="layui-input-inline">
+                            <select name="articleParentCategoryId" id="articleParentCategoryId"
+                                lay-filter="articleParentCategoryId">
+                                <option value="">一级分类</option>
+                                <option value="1">Java</option>
+                                <option value="10">计算机科学</option>
+                                <option value="15" selected="">其他技术</option>
+                                <option value="100000007">test</option>
+                            </select>
+
+                            <div class="layui-unselect layui-form-select">
+                                <div class="layui-select-title"><input type="text" placeholder="一级分类" value=""
+                                        readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div>
+                                <dl class="layui-anim layui-anim-upbit" style="">
+                                    <dd lay-value="" class="layui-select-tips">一级分类</dd>
+                                    <dd lay-value="1" class="">Java</dd>
+                                    <dd lay-value="10" class="">计算机科学</dd>
+                                    <dd lay-value="15" class="">其他技术</dd>
+                                    <dd lay-value="100000007" class="">test</dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                        <div class="layui-input-inline">
+                            <select name="articleChildCategoryId" id="articleChildCategoryId"
+                                lay-filter="articleChildCategoryId">
+                                <option value="" selected="">二级分类</option>
+                                <option name="childCategory" value="1">Java</option>
+                                <option name="childCategory" value="10">计算机科学</option>
+                                <option name="childCategory" value="15">其他技术</option>
+                                <option name="childCategory" value="100000007">test</option>
+                            </select>
+
+                            <div class="layui-unselect layui-form-select">
+                                <div class="layui-select-title"><input type="text" placeholder="二级分类" value=""
+                                        readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div>
+                                <dl class="layui-anim layui-anim-upbit">
+                                    <dd lay-value="" class="layui-select-tips">二级分类</dd>
+                                    <dd lay-value="1" class="">Java</dd>
+                                    <dd lay-value="10" class="">计算机科学</dd>
+                                    <dd lay-value="15" class="">其他技术</dd>
+                                    <dd lay-value="100000007" class="">test</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">order</label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="articleOrder" value="1" autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">输入1-10的数字,order越大排序越前</div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">缩略图</label>
+                        <div class="layui-input-inline">
+                            <div class="layui-upload">
+                                <div class="layui-upload-list" style="">
+                                    <img class="layui-upload-img" id="demo1" width="100"
+                                        src="./edit_article_files/img_2.jpg" height="100">
+                                    <p id="demoText"></p>
+                                </div>
+                                <button type="button" class="layui-btn" id="test1">上传图片</button><input
+                                    class="layui-upload-file" type="file" name="file">
+                                <input type="hidden" name="articleThumbnail" id="articleThumbnail"
+                                    value="/img/thumbnail/random/img_2.jpg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="articleStatus" value="1" title="发布" checked="">
+                            <div class="layui-unselect layui-form-radio layui-form-radioed"><i
+                                    class="layui-anim layui-icon"></i><span>发布</span></div>
+                            <input type="radio" name="articleStatus" value="0" title="草稿">
+                            <div class="layui-unselect layui-form-radio"><i
+                                    class="layui-anim layui-icon"></i><span>草稿</span></div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./edit_article_files/jquery.min.js"></script>
+    <script src="./edit_article_files/layui.all.js"></script>
+    <script src="./edit_article_files/back.js"></script>
+
+    <script>
+        //上传图片
+        layui.use('upload', function () {
+            var $ = layui.jquery,
+                upload = layui.upload;
+            var uploadInst = upload.render({
+                elem: '#test1',
+                url: '/admin/upload/img',
+                before: function (obj) {
+                    obj.preview(function (index, file, result) {
+                        $('#demo1').attr('src', result);
+                    });
+                },
+                done: function (res) {
+                    $("#articleThumbnail").attr("value", res.data.src);
+                    if (res.code > 0) {
+                        return layer.msg('上传失败');
+                    }
+                },
+                error: function () {
+                    var demoText = $('#demoText');
+                    demoText.html('' +
+                        '<span style="color: #FF5722;">上传失败</span>' +
+                        ' <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+                    demoText.find('.demo-reload').on('click', function () {
+                        uploadInst.upload();
+                    });
+                }
+            });
+
+        });
+    </script>
+
+    <script>
+
+
+        layui.use(['form', 'layedit', 'laydate'], function () {
+            var form = layui.form
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate;
+            // console.log(form);
+
+            //上传图片,必须放在 创建一个编辑器前面
+            layedit.set({
+                uploadImage: {
+                    url: '/admin/upload/img' //接口url
+                    , type: 'post' //默认post
+                }
+            });
+
+
+            //创建一个编辑器
+            var editIndex = layedit.build('content', {
+                height: 350,
+            }
+            );
+
+            //            layui.code({
+            //                elem: 'pre', //默认值为.layui-code
+            //            });
+
+            //自定义验证规则
+            form.verify({
+                title: function (value) {
+                    if (value.length < 5) {
+                        return '标题至少得5个字符啊';
+                    }
+                }
+                , content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+
+            layedit.build('content', {
+                tool: [
+                    'strong' //加粗
+                    , 'italic' //斜体
+                    , 'underline' //下划线
+                    , 'del' //删除线
+
+                    , '|' //分割线
+
+                    , 'left' //左对齐
+                    , 'center' //居中对齐
+                    , 'right' //右对齐
+                    , 'link' //超链接
+                    , 'unlink' //清除链接
+                    , 'face' //表情
+                    , 'image' //插入图片
+                    , 'code'
+                ]
+            });
+
+
+            //二级联动
+            form.on("select(articleParentCategoryId)", function () {
+                var str = "";
+                var articleParentCategoryId = $("#articleParentCategoryId").val();
+
+                if (articleParentCategoryId == 0) {
+                    str += "<option name='childCategory' value='1'>Java</option>";
+                }
+
+                if (articleParentCategoryId == 1) {
+                    str += "<option name='childCategory' value='2'>Java基础</option>";
+                }
+
+                if (articleParentCategoryId == 1) {
+                    str += "<option name='childCategory' value='3'>Core Java</option>";
+                }
+
+                if (articleParentCategoryId == 1) {
+                    str += "<option name='childCategory' value='4'>多线程并发编程</option>";
+                }
+
+                if (articleParentCategoryId == 1) {
+                    str += "<option name='childCategory' value='5'>Sockets和IO</option>";
+                }
+
+                if (articleParentCategoryId == 1) {
+                    str += "<option name='childCategory' value='6'>设计模式和反射</option>";
+                }
+
+                if (articleParentCategoryId == 1) {
+                    str += "<option name='childCategory' value='7'>JVM</option>";
+                }
+
+                if (articleParentCategoryId == 1) {
+                    str += "<option name='childCategory' value='8'>JavaWeb</option>";
+                }
+
+                if (articleParentCategoryId == 1) {
+                    str += "<option name='childCategory' value='9'>Java框架</option>";
+                }
+
+                if (articleParentCategoryId == 0) {
+                    str += "<option name='childCategory' value='10'>计算机科学</option>";
+                }
+
+                if (articleParentCategoryId == 10) {
+                    str += "<option name='childCategory' value='11'>数据结构和算法</option>";
+                }
+
+                if (articleParentCategoryId == 10) {
+                    str += "<option name='childCategory' value='12'>操作系统</option>";
+                }
+
+                if (articleParentCategoryId == 10) {
+                    str += "<option name='childCategory' value='13'>数据库</option>";
+                }
+
+                if (articleParentCategoryId == 10) {
+                    str += "<option name='childCategory' value='14'>计算机网络</option>";
+                }
+
+                if (articleParentCategoryId == 0) {
+                    str += "<option name='childCategory' value='15'>其他技术</option>";
+                }
+
+                if (articleParentCategoryId == 15) {
+                    str += "<option name='childCategory' value='16'>消息服务</option>";
+                }
+
+                if (articleParentCategoryId == 15) {
+                    str += "<option name='childCategory' value='17'>缓存服务</option>";
+                }
+
+                if (articleParentCategoryId == 100000000) {
+                    str += "<option name='childCategory' value='19'>Hello</option>";
+                }
+
+                if (articleParentCategoryId == 15) {
+                    str += "<option name='childCategory' value='100000003'>微服务</option>";
+                }
+
+                if (articleParentCategoryId == 15) {
+                    str += "<option name='childCategory' value='100000004'>搜索引擎</option>";
+                }
+
+                if (articleParentCategoryId == 15) {
+                    str += "<option name='childCategory' value='100000005'>权限框架</option>";
+                }
+
+                if (articleParentCategoryId == 15) {
+                    str += "<option name='childCategory' value='100000006'selected>开发利器</option>";
+                }
+
+                if (articleParentCategoryId == 0) {
+                    str += "<option name='childCategory' value='100000007'>test</option>";
+                }
+
+                if (articleParentCategoryId == 100000007) {
+                    str += "<option name='childCategory' value='100000008'>test2</option>";
+                }
+
+                $("#articleChildCategoryId").html("  <option value=''selected>二级分类</option>" + str);
+                form.render('select'); //这个很重要
+            })
+
+        });
+        //end
+
+
+    </script>
+
+    <script>
+        //给文本编辑器的iframe引入代码高亮的css
+        $("iframe").contents().find("head").append("<link rel=\"stylesheet\" href=\"/article_detail_files/highlight.css\">\n");
+
+    </script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script>
+        var domain = "http://b7t72k.natappfree.cc";
+        var localhost = "127.0.0.1/ForestBlog_war_exploded/";
+
+        function getQueryVariable(variable) {
+            let query = window.location.search.substring(1);
+            let vars = query.split("&");
+            for (let i = 0; i < vars.length; i++) {
+                let pair = vars[i].split("=");
+                if (pair[0] == variable) { return pair[1]; }
+            }
+            return -1;
+        }
+
+        var str = window.location.search;
+        var articleId = getQueryVariable("articleId");
+        console.log(articleId);
+        
+        /* var app = new Vue({
+            el: '#page',
+            data() {
+                return {
+                    categories: [
+                        {
+                            "categoryId": 0,
+                            "categoryPid": 0,
+                            "categoryName": null,
+                            "categoryOrder": 0,
+                            "articleCount": null
+                        }
+                    ]
+                }
+            },
+            methods: {
+                getCategories: function () {
+                    axios.get(domain + "/category/getCategories", {
+                    }).then(response => {
+                        if (response.data.code == 100) {
+                            this.categories = response.data.data;
+                            console.log(this.categories);
+                        }
+                    }).catch(function (error) {
+                        // console.log(error);
+                        // alert('axios failed');
+                    });
+                }
+            }
+        });
+ */
+        /* var app = new Vue({
+            el: '#page',
+            data() {
+                return {
+                    article: {
+                        "articleId": 1,
+                        "articleTitle": null,
+                        "articleContent": null,
+                        "articleCreateTime": null,
+                        "articleUpdateTime": null,
+                        "articleViewCount": 0,
+                        "articleSummary": null,
+                        "articlePicUrl": null,
+                        "categoryList": [
+                            {
+                                "categoryId": 0,
+                                "categoryPid": 0,
+                                "categoryName": null,
+                                "categoryOrder": null,
+                                "articleCount": null
+                            }
+                        ]
+                    },
+                    parentCategory: {
+                        "categoryId": 0,
+                        "categoryPid": 0,
+                        "categoryName": "parent"
+                    },
+                    childCategory: {
+                        "categoryId": 1,
+                        "categoryPid": 0,
+                        "categoryName": "child"
+                    },
+
+                    categories: [
+                        {
+                            "categoryId": 0,
+                            "categoryPid": 0,
+                            "categoryName": null,
+                            "categoryOrder": 0,
+                            "articleCount": null
+                        }
+                    ]
+                }
+            },
+            mounted() {
+                // this.getCategories();
+                 if (articleId == -1) {
+                    this.article = null;
+                    this.parentCategory = null;
+                    this.childCategory = null;
+                } else {
+                    this.getArticleDetail();
+                }
+            },
+            methods: {
+
+                getCategories: function () {
+                    axios.get(domain + "/category/getCategories", {
+                    }).then(response => {
+                        if (response.data.code == 100) {
+                            this.categories = response.data.data;
+                            console.log(this.categories);
+                        }
+                    }).catch(function (error) {
+                        // console.log(error);
+                        // alert('axios failed');
+                    });
+                },
+
+                getArticleDetail: function () {
+                    axios.get(domain + "/article/" + articleId, {
+                    }).then(response => {
+                        if (response.data.code == 100) {
+                            this.article = response.data.data;
+                            // console.log(this.article);
+
+                            var categories = response.data.data.categoryList;
+                            var len = categories.length;
+                            if (len == 0) {
+                                this.parentCategory = null;
+                                this.childCategory = null;
+                            } else if (len == 1) {
+                                this.parentCategory = categories[0];
+                                this.childCategory = null;
+                            } else {
+                                for (var i = 0, len = categories.length; i < len; i++) {
+                                    if (categories[i].categoryPid != 0) {
+                                        this.childCategory = categories[i];
+                                    } else {
+                                        this.parentCategory = categories[i];
+                                    }
+                                }
+                            }
+                            console.log(this.parentCategory);
+                            console.log(this.childCategory);
+
+                        }
+                    }).catch(function (error) {
+                        // console.log(error);
+                        // alert('articles axios failed');
+                    });
+                }
+            }
+        });
+     */
+    </script>
+
+</body>
+
+</html>
