@@ -29,15 +29,15 @@
 		}
 	</style>
 	<style>
-        .entry-title {
-            background: #f8f8f8;
-        }
-    </style>
+		.entry-title {
+			background: #f8f8f8;
+		}
+	</style>
 	<style>
-        [v-cloak] {
-            display: none !important;
-        }
-    </style>
+		[v-cloak] {
+			display: none !important;
+		}
+	</style>
 	<link rel="stylesheet" href="./index/share_style0_16.css">
 	<!-- <script src="chrome-extension://ajdpfmkffanmkhejnopjppegokpogffp/assets/prompt.js"></script>
     <style type="text/css">
@@ -79,120 +79,40 @@
 							<div class="menu-pcmenu-container">
 								<ul id="menu-pcmenu" class="down-menu nav-menu">
 
-									<li>
-										<a href="http://localhost:8080/">
-											<i class="fa-home fa"></i>
-											<span class="font-text">首页</span>
-										</a>
-									</li>
+                                    <li>
+                                        <a href="./index.html">
+                                            <i class="fa-home fa"></i>
+                                            <span class="font-text">首页</span>
+                                        </a>
+                                    </li>
 
 
 
-									<li>
-										<a href="http://localhost:8080/category/1" class="sf-with-ul">
-											<i class="fa fa-coffee"></i>
-											<span class="font-text">Java&nbsp;</span>
-										</a>
-										<ul class="sub-menu">
-											<li>
-												<a href="http://localhost:8080/category/2" target="_blank">Java基础</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/3" target="_blank">Core
-													Java</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/4" target="_blank">多线程并发编程</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/5"
-													target="_blank">Sockets和IO</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/6" target="_blank">设计模式和反射</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/7" target="_blank">JVM</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/8" target="_blank">JavaWeb</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/9" target="_blank">Java框架</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="http://localhost:8080/category/10" class="sf-with-ul">
-											<i class="fa fa-cubes"></i>
-											<span class="font-text">计算机科学&nbsp;</span>
-										</a>
-										<ul class="sub-menu">
-											<li>
-												<a href="http://localhost:8080/category/11" target="_blank">数据结构和算法</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/12" target="_blank">操作系统</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/13" target="_blank">数据库</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/14" target="_blank">计算机网络</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="http://localhost:8080/category/15" class="sf-with-ul">
-											<i class="fa-snowflake-o fa"></i>
-											<span class="font-text">其他技术&nbsp;</span>
-										</a>
-										<ul class="sub-menu">
-											<li>
-												<a href="http://localhost:8080/category/16" target="_blank">消息服务</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/17" target="_blank">缓存服务</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/100000003"
-													target="_blank">微服务</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/100000004"
-													target="_blank">搜索引擎</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/100000005"
-													target="_blank">权限框架</a>
-											</li>
-											<li>
-												<a href="http://localhost:8080/category/100000006"
-													target="_blank">开发利器</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="https://leetcode.com/problemset/all">
-											<i class="ssss"></i>
-											<span class="font-text">LeetCode&nbsp;</span>
-										</a>
-									</li>
+                                    <li v-for="parentCategory in categories" v-if="parentCategory.categoryPid === 0">
+                                        <a v-bind:href="['./category.html?categoryId=' + parentCategory.categoryId]" class="sf-with-ul">
+                                            <i class="fa"></i>
+                                            <span class="font-text">{{parentCategory.categoryName}}</span>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li v-for="childCategory in categories" v-if="childCategory.categoryPid == parentCategory.categoryId">
+                                                <a v-bind:href="['./category.html?categoryId=' + childCategory.categoryId]" target="_blank">{{childCategory.categoryName}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
 
-
-									<li>
-										<a href="http://localhost:8080/">
-											<i class="fa-home fa"></i>
-											<span class="font-text">关于本站</span>
-										</a>
-									</li>
-									<li>
-										<a href="http://localhost:8080/">
-											<i class="fa-home fa"></i>
-											<span class="font-text">进入后台</span>
-										</a>
-									</li>
-								</ul>
+                                    <li>
+                                        <a href="./index.html">
+                                            <i class="fa-home fa"></i>
+                                            <span class="font-text">关于本站</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./index.html">
+                                            <i class="fa-home fa"></i>
+                                            <span class="font-text">进入后台</span>
+                                        </a>
+                                    </li>
+                                </ul>
 							</div>
 						</nav>
 					</div>
@@ -242,7 +162,7 @@
 
 						<!-- 文章内容 -->
 						<div class="entry-content">
-							<div class="single-content"  v-html="notice.noticeContent">
+							<div class="single-content" v-html="notice.noticeContent">
 							</div>
 
 							<br><br>
@@ -277,61 +197,61 @@
 			</div>
 
 			<!-- 侧边栏 -->
-            <div id="sidebar" class="widget-area all-sidebar"
-                style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+			<div id="sidebar" class="widget-area all-sidebar"
+				style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
 
 
-                <div class="theiaStickySidebar"
-                    style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+				<div class="theiaStickySidebar"
+					style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
 
-                    <!-- 网站概况 -->
-                    <aside id="php_text-22" class="widget php_text">
-                        <h3 class="widget-title">
-                            <i class="fa fa-bars"></i>网站概况
-                        </h3>
-                        <div class="textwidget widget-text">
-                            <ul class="site-profile">
-                                <li><i class="fa fa-file-o"></i> 文章总数：{{siteInfo.articleCount}} 篇</li>
-                                <li><i class="fa fa-folder-o"></i> 分类数量：{{siteInfo.categoryCount}} 个</li>
-                                <li><i class="fa fa-eye"></i> 浏览总量：{{siteInfo.viewCount}} 次</li>
-                                <li><i class="fa fa-pencil-square-o"></i> 最后更新：
-                                    <span style="color:#2F889A">
-                                        {{siteInfo.lastArticle.articleUpdateTime}}</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="clear"></div>
-                    </aside>
+					<!-- 网站概况 -->
+					<aside id="php_text-22" class="widget php_text">
+						<h3 class="widget-title">
+							<i class="fa fa-bars"></i>网站概况
+						</h3>
+						<div class="textwidget widget-text">
+							<ul class="site-profile">
+								<li><i class="fa fa-file-o"></i> 文章总数：{{siteInfo.articleCount}} 篇</li>
+								<li><i class="fa fa-folder-o"></i> 分类数量：{{siteInfo.categoryCount}} 个</li>
+								<li><i class="fa fa-eye"></i> 浏览总量：{{siteInfo.viewCount}} 次</li>
+								<li><i class="fa fa-pencil-square-o"></i> 最后更新：
+									<span style="color:#2F889A">
+										{{siteInfo.lastArticle.articleUpdateTime}}</span>
+								</li>
+							</ul>
+						</div>
+						<div class="clear"></div>
+					</aside>
 
-                    <!-- 热门文章 -->
-                    <aside class="widget">
-                        <h3 class="widget-title">
-                            <i class="fa fa-bars"></i>热门文章
-                        </h3>
-                        <div class="new_cat">
-                            <ul>
-                                <li v-for="hotArticle in hotArticles">
-                                    <span class="thumbnail">
-                                        <a v-bind:href="['./article_detail.html?articleId=' + hotArticle.articleId]">
-                                            <img src="./言曌博客 _ 学如逆水行舟，不进则退_files/acd734b91d5c43eca49a4c15ae37da0b.png"
-                                                class="lazy" v-bind:alt="hotArticle.articleTitle">
-                                        </a>
-                                    </span>
-                                    <span class="new-title">
-                                        <a v-bind:href="['./article_detail.html?articleId=' + hotArticle.articleId]"
-                                            rel="bookmark">{{hotArticle.articleTitle}}</a>
-                                    </span>
-                                    <span class="views">
-                                        <i class="fa fa-eye"></i>
-                                        {{hotArticle.articleViewCount}} views
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="clear"></div>
-                    </aside>
-                </div>
-            </div>
+					<!-- 热门文章 -->
+					<aside class="widget">
+						<h3 class="widget-title">
+							<i class="fa fa-bars"></i>热门文章
+						</h3>
+						<div class="new_cat">
+							<ul>
+								<li v-for="hotArticle in hotArticles">
+									<span class="thumbnail">
+										<a v-bind:href="['./article_detail.html?articleId=' + hotArticle.articleId]">
+											<img src="./言曌博客 _ 学如逆水行舟，不进则退_files/acd734b91d5c43eca49a4c15ae37da0b.png"
+												class="lazy" v-bind:alt="hotArticle.articleTitle">
+										</a>
+									</span>
+									<span class="new-title">
+										<a v-bind:href="['./article_detail.html?articleId=' + hotArticle.articleId]"
+											rel="bookmark">{{hotArticle.articleTitle}}</a>
+									</span>
+									<span class="views">
+										<i class="fa fa-eye"></i>
+										{{hotArticle.articleViewCount}} views
+									</span>
+								</li>
+							</ul>
+						</div>
+						<div class="clear"></div>
+					</aside>
+				</div>
+			</div>
 
 		</div>
 		<div class="clear"></div>
@@ -642,127 +562,12 @@
 
 	<script src="./index/layui.all.js"></script>
 
-
-
-	<div id="sidr-main" class="sidr left">
-		<div class="sidr-inner">
-			<a href="http://localhost:8080/#sidr-close" class="sidr-class-toggle-sidr-close">×</a>
-		</div>
-		<div class="sidr-inner">
-			<a href="http://localhost:8080/#sidr-main" id="sidr-id-navigation-toggle" class="sidr-class-bars">
-				<i class="sidr-class-fa sidr-class-fa-bars"></i>
-			</a>
-			<div class="sidr-class-menu-pcmenu-container">
-				<ul id="sidr-id-menu-pcmenu" class="sidr-class-down-menu sidr-class-nav-menu">
-
-					<li>
-						<a href="http://localhost:8080/">
-							<i class="sidr-class-fa-home sidr-class-fa"></i>
-							<span class="sidr-class-font-text">首页</span>
-						</a>
-					</li>
-
-					<li>
-						<a href="http://localhost:8080/category/1" class="sidr-class-sf-with-ul">
-							<i class="sidr-class-fa sidr-class-fa-coffee"></i>
-							<span class="sidr-class-font-text">Java&nbsp;</span>
-						</a>
-						<ul class="sidr-class-sub-menu">
-							<li>
-								<a href="http://localhost:8080/category/2" target="_blank">Java基础</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/3" target="_blank">Core Java</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/4" target="_blank">多线程并发编程</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/5" target="_blank">Sockets和IO</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/6" target="_blank">设计模式和反射</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/7" target="_blank">JVM</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/8" target="_blank">JavaWeb</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/9" target="_blank">Java框架</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="http://localhost:8080/category/10" class="sidr-class-sf-with-ul">
-							<i class="sidr-class-fa sidr-class-fa-cubes"></i>
-							<span class="sidr-class-font-text">计算机科学&nbsp;</span>
-						</a>
-						<ul class="sidr-class-sub-menu">
-							<li>
-								<a href="http://localhost:8080/category/11" target="_blank">数据结构和算法</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/12" target="_blank">操作系统</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/13" target="_blank">数据库</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/14" target="_blank">计算机网络</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="http://localhost:8080/category/15" class="sidr-class-sf-with-ul">
-							<i class="sidr-class-fa-snowflake-o sidr-class-fa"></i>
-							<span class="sidr-class-font-text">其他技术&nbsp;</span>
-						</a>
-						<ul class="sidr-class-sub-menu">
-							<li>
-								<a href="http://localhost:8080/category/16" target="_blank">消息服务</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/17" target="_blank">缓存服务</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/100000003" target="_blank">微服务</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/100000004" target="_blank">搜索引擎</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/100000005" target="_blank">权限框架</a>
-							</li>
-							<li>
-								<a href="http://localhost:8080/category/100000006" target="_blank">开发利器</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="https://leetcode.com/problemset/all">
-							<i class="sidr-class-ssss"></i>
-							<span class="sidr-class-font-text">LeetCode&nbsp;</span>
-						</a>
-					</li>
-					<li>
-						<a href="http://localhost:8080/message">
-							<i class="sidr-class-fa sidr-class-fa-comment"></i>
-							<span class="sidr-class-font-text">留言板&nbsp;</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
 	<script>
 		// var domain = "http://4snyng.natappfree.cc";
-		var domain = " http://mnzni2.natappfree.cc";
+		var domain = "http://b7t72k.natappfree.cc";
 		var localhost = "127.0.0.1/ForestBlog_war_exploded/";
 
 		function getQueryVariable(variable) {
@@ -786,6 +591,16 @@
 			el: '#page',
 			data() {
 				return {
+					categories: [
+						{
+							"categoryId": 1,
+							"categoryPid": 0,
+							"categoryName": "Java",
+							"categoryOrder": 1,
+							"articleCount": null
+						}
+					],
+
 					notice: {
 						"noticeId": 0,
 						"noticeTitle": "暂无公告",
@@ -796,49 +611,50 @@
 						"noticeOrder": 1
 					},
 					siteInfo: {
-                        "lastArticle": {
-                            "articleId": 0,
-                            "articleUserId": 0,
-                            "articleTitle": null,
-                            "articleViewCount": 0,
-                            "articleCommentCount": 0,
-                            "articleLikeCount": 0,
-                            "articleCreateTime": null,
-                            "articleUpdateTime": null,
-                            "articleIsComment": 0,
-                            "articleStatus": 1,
-                            "articleOrder": 1,
-                            "articleContent": null,
-                            "articleSummary": null,
-                            "user": null,
-                            "tagList": null,
-                            "categoryList": null
-                        },
-                        "categoryCount": 0,
-                        "articleCount": 0,
-                        "viewCount": 0
-                    },
+						"lastArticle": {
+							"articleId": 0,
+							"articleUserId": 0,
+							"articleTitle": null,
+							"articleViewCount": 0,
+							"articleCommentCount": 0,
+							"articleLikeCount": 0,
+							"articleCreateTime": null,
+							"articleUpdateTime": null,
+							"articleIsComment": 0,
+							"articleStatus": 1,
+							"articleOrder": 1,
+							"articleContent": null,
+							"articleSummary": null,
+							"user": null,
+							"tagList": null,
+							"categoryList": null
+						},
+						"categoryCount": 0,
+						"articleCount": 0,
+						"viewCount": 0
+					},
 
-                    hotArticles: [
-                        {
-                            "articleId": 1,
-                            "articleTitle": null,
-                            "articleContent": null,
-                            "articleStatus": 1,
-                            "articleCreateTime": null,
-                            "articleUpdateTime": null,
-                            "articleViewCount": 27,
-                            "articleSummary": null,
-                            "articlePicUrl": "./assets/img/avatar/avatar1.jpg",
-                            "categoryList": null
-                        }
-                    ]
+					hotArticles: [
+						{
+							"articleId": 1,
+							"articleTitle": null,
+							"articleContent": null,
+							"articleStatus": 1,
+							"articleCreateTime": null,
+							"articleUpdateTime": null,
+							"articleViewCount": 27,
+							"articleSummary": null,
+							"articlePicUrl": "./assets/img/avatar/avatar1.jpg",
+							"categoryList": null
+						}
+					]
 				}
 			},
 			mounted() {
 				this.getNotice();
-                this.getSiteInfo();
-                this.getHotArticles();
+				this.getSiteInfo();
+				this.getHotArticles();
+				this.getCategories();
 			},
 			methods: {
 				getNotice: function () {
@@ -853,30 +669,43 @@
 				},
 
 				getSiteInfo: function () {
-                    axios.get(domain + '/site/getShortInfo', {
-                    }).then(response => {
-                        if (response.data.code == 100) {
-                            this.siteInfo = response.data.data;
-                            console.log(this.siteInfo);
-                        }
-                    }).catch(function (error) {
-                        // console.log(error);
-                        // alert('axios failed');
-                    });
-                },
+					axios.get(domain + '/site/getShortInfo', {
+					}).then(response => {
+						if (response.data.code == 100) {
+							this.siteInfo = response.data.data;
+							console.log(this.siteInfo);
+						}
+					}).catch(function (error) {
+						// console.log(error);
+						// alert('axios failed');
+					});
+				},
 
-                getHotArticles: function () {
-                    axios.get(domain + "/article/mostview", {
-                    }).then(response => {
-                        if (response.data.code == 100) {
-                            this.hotArticles = response.data.data;
-                            console.log(this.hotArticles);
-                        }
-                    }).catch(function (error) {
-                        // console.log(error);
-                        // alert('axios failed');
-                    });
-                }
+				getHotArticles: function () {
+					axios.get(domain + "/article/mostview", {
+					}).then(response => {
+						if (response.data.code == 100) {
+							this.hotArticles = response.data.data;
+							console.log(this.hotArticles);
+						}
+					}).catch(function (error) {
+						// console.log(error);
+						// alert('axios failed');
+					});
+				},
+
+				getCategories: function () {
+					axios.get(domain + "/category/getCategories", {
+					}).then(response => {
+						if (response.data.code == 100) {
+							this.categories = response.data.data;
+							console.log(this.categories);
+						}
+					}).catch(function (error) {
+						// console.log(error);
+						// alert('axios failed');
+					});
+				}
 			}
 		});
 	</script>

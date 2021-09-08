@@ -1,0 +1,174 @@
+{
+    "code": 100,
+    "msg": "success",
+    "data": [
+        {
+            "categoryId": 1,
+            "categoryPid": 0,
+            "categoryName": "Java",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 2,
+            "categoryPid": 1,
+            "categoryName": "Java基础",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 3,
+            "categoryPid": 1,
+            "categoryName": "Core Java",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 4,
+            "categoryPid": 1,
+            "categoryName": "多线程并发编程",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 5,
+            "categoryPid": 1,
+            "categoryName": "Sockets和IO",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 6,
+            "categoryPid": 1,
+            "categoryName": "设计模式和反射",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 7,
+            "categoryPid": 1,
+            "categoryName": "JVM",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 8,
+            "categoryPid": 1,
+            "categoryName": "JavaWeb",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 9,
+            "categoryPid": 1,
+            "categoryName": "Java框架",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 10,
+            "categoryPid": 0,
+            "categoryName": "计算机科学",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 11,
+            "categoryPid": 10,
+            "categoryName": "数据结构和算法",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 12,
+            "categoryPid": 10,
+            "categoryName": "操作系统",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 13,
+            "categoryPid": 10,
+            "categoryName": "数据库",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 14,
+            "categoryPid": 10,
+            "categoryName": "计算机网络",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 15,
+            "categoryPid": 0,
+            "categoryName": "其他技术",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 16,
+            "categoryPid": 15,
+            "categoryName": "消息服务",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 17,
+            "categoryPid": 15,
+            "categoryName": "缓存服务",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 19,
+            "categoryPid": 100000000,
+            "categoryName": "Hello",
+            "categoryOrder": 1,
+            "articleCount": null
+        },
+        {
+            "categoryId": 100000003,
+            "categoryPid": 15,
+            "categoryName": "微服务",
+            "categoryOrder": null,
+            "articleCount": null
+        },
+        {
+            "categoryId": 100000004,
+            "categoryPid": 15,
+            "categoryName": "搜索引擎",
+            "categoryOrder": null,
+            "articleCount": null
+        },
+        {
+            "categoryId": 100000005,
+            "categoryPid": 15,
+            "categoryName": "权限框架",
+            "categoryOrder": null,
+            "articleCount": null
+        },
+        {
+            "categoryId": 100000006,
+            "categoryPid": 15,
+            "categoryName": "开发利器",
+            "categoryOrder": null,
+            "articleCount": null
+        },
+        {
+            "categoryId": 100000007,
+            "categoryPid": 0,
+            "categoryName": "test",
+            "categoryOrder": null,
+            "articleCount": null
+        },
+        {
+            "categoryId": 100000008,
+            "categoryPid": 100000007,
+            "categoryName": "test2",
+            "categoryOrder": null,
+            "articleCount": null
+        }
+    ]
+}

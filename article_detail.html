@@ -84,91 +84,17 @@
 
 
 
-                                    <li>
-                                        <a href="./index.htmlcategory/1" class="sf-with-ul">
-                                            <i class="fa fa-coffee"></i>
-                                            <span class="font-text">Java&nbsp;</span>
+                                    <li v-for="parentCategory in categories" v-if="parentCategory.categoryPid === 0">
+                                        <a v-bind:href="['./category.html?categoryId=' + parentCategory.categoryId]" class="sf-with-ul">
+                                            <i class="fa"></i>
+                                            <span class="font-text">{{parentCategory.categoryName}}</span>
                                         </a>
                                         <ul class="sub-menu">
-                                            <li>
-                                                <a href="./index.htmlcategory/2" target="_blank">Java基础</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/3" target="_blank">Core Java</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/4" target="_blank">多线程并发编程</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/5" target="_blank">Sockets和IO</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/6" target="_blank">设计模式和反射</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/7" target="_blank">JVM</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/8" target="_blank">JavaWeb</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/9" target="_blank">Java框架</a>
+                                            <li v-for="childCategory in categories" v-if="childCategory.categoryPid == parentCategory.categoryId">
+                                                <a v-bind:href="['./category.html?categoryId=' + childCategory.categoryId]" target="_blank">{{childCategory.categoryName}}</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li>
-                                        <a href="./index.htmlcategory/10" class="sf-with-ul">
-                                            <i class="fa fa-cubes"></i>
-                                            <span class="font-text">计算机科学&nbsp;</span>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="./index.htmlcategory/11" target="_blank">数据结构和算法</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/12" target="_blank">操作系统</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/13" target="_blank">数据库</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/14" target="_blank">计算机网络</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="./index.htmlcategory/15" class="sf-with-ul">
-                                            <i class="fa-snowflake-o fa"></i>
-                                            <span class="font-text">其他技术&nbsp;</span>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="./index.htmlcategory/16" target="_blank">消息服务</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/17" target="_blank">缓存服务</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/100000003" target="_blank">微服务</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/100000004" target="_blank">搜索引擎</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/100000005" target="_blank">权限框架</a>
-                                            </li>
-                                            <li>
-                                                <a href="./index.htmlcategory/100000006" target="_blank">开发利器</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="https://leetcode.com/problemset/all">
-                                            <i class="ssss"></i>
-                                            <span class="font-text">LeetCode&nbsp;</span>
-                                        </a>
-                                    </li>
-
 
                                     <li>
                                         <a href="./index.html">
@@ -697,138 +623,11 @@
 
     </script>
 
-
-    <div id="sidr-main" class="sidr left">
-        <div class="sidr-inner">
-            <a href="http://localhost/article/32#sidr-close" class="sidr-class-toggle-sidr-close">×</a>
-        </div>
-        <div class="sidr-inner">
-            <a href="http://localhost/article/32#sidr-main" id="sidr-id-navigation-toggle" class="sidr-class-bars">
-                <i class="sidr-class-fa sidr-class-fa-bars"></i>
-            </a>
-            <div class="sidr-class-menu-pcmenu-container">
-                <ul id="sidr-id-menu-pcmenu" class="sidr-class-down-menu sidr-class-nav-menu">
-
-                    <li>
-                        <a href="http://localhost/">
-                            <i class="sidr-class-fa-home sidr-class-fa"></i>
-                            <span class="sidr-class-font-text">首页</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="http://localhost/category/1" class="sidr-class-sf-with-ul">
-                            <i class="sidr-class-fa sidr-class-fa-coffee"></i>
-                            <span class="sidr-class-font-text">Java&nbsp;</span>
-                        </a>
-                        <ul class="sidr-class-sub-menu">
-                            <li>
-                                <a href="http://localhost/category/2" target="_blank">Java基础</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/3" target="_blank">Core Java</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/4" target="_blank">多线程并发编程</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/5" target="_blank">Sockets和IO</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/6" target="_blank">设计模式和反射</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/7" target="_blank">JVM</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/8" target="_blank">JavaWeb</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/9" target="_blank">Java框架</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="http://localhost/category/10" class="sidr-class-sf-with-ul">
-                            <i class="sidr-class-fa sidr-class-fa-cubes"></i>
-                            <span class="sidr-class-font-text">计算机科学&nbsp;</span>
-                        </a>
-                        <ul class="sidr-class-sub-menu">
-                            <li>
-                                <a href="http://localhost/category/11" target="_blank">数据结构和算法</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/12" target="_blank">操作系统</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/13" target="_blank">数据库</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/14" target="_blank">计算机网络</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="http://localhost/category/15" class="sidr-class-sf-with-ul">
-                            <i class="sidr-class-fa-snowflake-o sidr-class-fa"></i>
-                            <span class="sidr-class-font-text">其他技术&nbsp;</span>
-                        </a>
-                        <ul class="sidr-class-sub-menu">
-                            <li>
-                                <a href="http://localhost/category/16" target="_blank">消息服务</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/17" target="_blank">缓存服务</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/100000003" target="_blank">微服务</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/100000004" target="_blank">搜索引擎</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/100000005" target="_blank">权限框架</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost/category/100000006" target="_blank">开发利器</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="http://localhost/category/100000007" class="sidr-class-sf-with-ul">
-                            <i class=""></i>
-                            <span class="sidr-class-font-text">test&nbsp;</span>
-                        </a>
-                        <ul class="sidr-class-sub-menu">
-                            <li>
-                                <a href="http://localhost/category/100000008" target="_blank">test2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="https://leetcode.com/problemset/all">
-                            <i class="sidr-class-ssss"></i>
-                            <span class="sidr-class-font-text">LeetCode&nbsp;</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/message">
-                            <i class="sidr-class-fa sidr-class-fa-comment"></i>
-                            <span class="sidr-class-font-text">留言板&nbsp;</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    </div>
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
     <script>
-        // var domain = "http://4snyng.natappfree.cc";
-        var domain = " http://mnzni2.natappfree.cc";
+        var domain = "http://b7t72k.natappfree.cc";
         var localhost = "127.0.0.1/ForestBlog_war_exploded/";
 
         function getQueryVariable(variable) {
@@ -925,6 +724,16 @@
                             "articlePicUrl": "./assets/img/avatar/avatar1.jpg",
                             "categoryList": null
                         }
+                    ],
+
+                    categories: [
+                        {
+                            "categoryId": 1,
+                            "categoryPid": 0,
+                            "categoryName": "Java",
+                            "categoryOrder": 1,
+                            "articleCount": null
+                        }
                     ]
                 }
             },
@@ -932,6 +741,7 @@
                 this.getArticleDetail();
                 this.getSiteInfo();
                 this.getHotArticles();
+                this.getCategories();
             },
             methods: {
 
@@ -954,6 +764,19 @@
                         if (response.data.code == 100) {
                             this.hotArticles = response.data.data;
                             console.log(this.hotArticles);
+                        }
+                    }).catch(function (error) {
+                        // console.log(error);
+                        // alert('axios failed');
+                    });
+                },
+
+                getCategories: function () {
+                    axios.get(domain + "/category/getCategories", {
+                    }).then(response => {
+                        if (response.data.code == 100) {
+                            this.categories = response.data.data;
+                            console.log(this.categories);
                         }
                     }).catch(function (error) {
                         // console.log(error);
